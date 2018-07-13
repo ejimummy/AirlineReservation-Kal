@@ -14,12 +14,11 @@ public:
 
 	}
 
-	Ticket(int reservationId) {
+	Ticket(Reservation reservation) {
 		//open reservation file using filehelper and search for reservation number
 		//get the lastTicketId in the file and set mLastTicketId
 		//create new ticket id
 		//get the Passenger Flight, and seat for the reservation and set properties
-		//save ticket to file
 	}
 
 	~Ticket()
