@@ -18,7 +18,7 @@ void Reservation::display() const
 {
 	//not sure how to write this with flight and player. 
 	//what exactly do we want to see in a reservation
-	mReservedFlight.display();
+	//mReservedFlight.display();
 	cout << " ";
 	mReservedPassenger.display();
 	cout << " ";

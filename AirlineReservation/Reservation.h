@@ -32,7 +32,7 @@ private:
 	int mID;
 	Flight mReservedFlight;
 	Passenger mReservedPassenger;
-	string mReservedSeatNumber
+	string mReservedSeatNumber;
 
 
 };

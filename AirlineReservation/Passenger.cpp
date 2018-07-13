@@ -5,9 +5,9 @@
 using std::string;
 using namespace std;
 
-Passenger::Passenger()
-{
-}
+//Passenger::Passenger()
+//{
+//}
 
 Passenger::Passenger(const int id, const string firstName, const string lastName, const string address, 
 	const string city, const string state, const string zipCode, const string phoneNumber, const string emailAddress)
