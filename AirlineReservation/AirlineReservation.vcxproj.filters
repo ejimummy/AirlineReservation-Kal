@@ -36,12 +36,18 @@
     <ClInclude Include="scheduleManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ticket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AirlineReservation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ticket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Passenger.cpp">
