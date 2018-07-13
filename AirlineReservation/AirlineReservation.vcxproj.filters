@@ -24,6 +24,9 @@
     <ClInclude Include="scheduleManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="flight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
