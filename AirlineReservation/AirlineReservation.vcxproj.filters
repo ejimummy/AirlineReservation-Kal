@@ -21,6 +21,9 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="ticket.h">
+=======
     <ClInclude Include="Passenger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -28,6 +31,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Reservation2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scheduleManager.h">
+>>>>>>> 58669e8501d58862240fb2cfadc4a4ecc7ce334d
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,6 +48,8 @@
     <ClCompile Include="AirlineReservation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ticket.cpp">
+=======
     <ClCompile Include="Passenger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,7 +59,8 @@
     <ClCompile Include="Reservation2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ticket.cpp">
+    <ClCompile Include="ScheduleManager.cpp">
+>>>>>>> 58669e8501d58862240fb2cfadc4a4ecc7ce334d
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
