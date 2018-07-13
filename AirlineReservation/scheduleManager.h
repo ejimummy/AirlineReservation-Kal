@@ -1,4 +1,6 @@
 #pragma once
+
+
 class ScheduleManager {
 
 	
@@ -6,5 +8,7 @@ class ScheduleManager {
 	void displayTicket(int reservationId);
 	void cancelReservationId();
 	//Ticket flightCheckIn(int reservationId);
+
+
 
 };
