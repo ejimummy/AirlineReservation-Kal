@@ -21,7 +21,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ticket.h">
+    <ClInclude Include="Passenger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Reservation.h">
