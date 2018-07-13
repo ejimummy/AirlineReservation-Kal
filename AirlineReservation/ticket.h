@@ -19,7 +19,7 @@ private:
 public:
 	//constructors and destructor
 	Ticket();
-	Ticket(Reservation reservation);
+	Ticket(int reservationId);
 	~Ticket();
 
 	//getters and setters
