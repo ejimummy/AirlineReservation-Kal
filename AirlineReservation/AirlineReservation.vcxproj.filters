@@ -21,10 +21,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scheduleManager.h">
+    <ClInclude Include="Passenger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flight.h">
+    <ClInclude Include="Reservation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reservation2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +38,13 @@
     <ClCompile Include="AirlineReservation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ScheduleManager.cpp">
+    <ClCompile Include="Passenger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reservation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reservation2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
