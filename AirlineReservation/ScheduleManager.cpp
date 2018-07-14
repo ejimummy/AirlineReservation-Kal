@@ -19,7 +19,7 @@ void cancelReservationId()
 
 void passengerCheckin(int reservationId)
 {
-	Ticket myTicket(reservationId);
+	/*Ticket myTicket(reservationId);
 	cout << "Thank you for checking in. Below is your ticket to board.";
-	displayTicket(reservationId);
+	displayTicket(reservationId);*/
 }

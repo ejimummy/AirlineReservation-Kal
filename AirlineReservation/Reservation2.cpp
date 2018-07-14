@@ -50,7 +50,7 @@ int Reservation2::getReservedPassengerID() const
 
 void Reservation2::setReservedSeatNumber(const string & seatNumber)
 {
-	mReservedSeatNumber = seatNumber
+	mReservedSeatNumber = seatNumber;
 }
 
 const string Reservation2::getReservedSeatNumber() const

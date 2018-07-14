@@ -6,19 +6,19 @@ using std::string;
 using namespace std;
 
 
-Reservation::Reservation(const int id, const Flight & flight, const Passenger & passenger, const string & seatNumber)
-{
-	mID = id;
-	mReservedFlight = flight;
-	mReservedPassenger = passenger;
-	mReservedSeatNumber = seatNumber;
-}
+//Reservation::Reservation(const int id, const Flight & flight, const Passenger & passenger, const string & seatNumber)
+//{
+//	mID = id;
+//	mReservedFlight = flight;
+//	mReservedPassenger = passenger;
+//	mReservedSeatNumber = seatNumber;
+//}
 
 void Reservation::display() const
 {
 	//not sure how to write this with flight and player. 
 	//what exactly do we want to see in a reservation
-	mReservedFlight.display();
+	//mReservedFlight.display();
 	cout << " ";
 	mReservedPassenger.display();
 	cout << " ";

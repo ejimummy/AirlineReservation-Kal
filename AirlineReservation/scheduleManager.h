@@ -1,12 +1,11 @@
 #pragma once
-#include "Reservation.h"
-#include "Passenger.h"
-#include "flight.h"
-#include "ticket.h"
+//#include "Reservation.h"
+//#include "flight.h"
+//#include "ticket.h"
 
 
 class ScheduleManager {
-	public:
+public:
 	ScheduleManager() = default;
 
 	//int reserveFlight(Passenger p, Flight f);

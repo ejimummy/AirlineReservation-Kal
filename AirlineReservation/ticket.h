@@ -18,7 +18,7 @@ private:
 	
 public:
 	//constructors and destructor
-	Ticket();
+	Ticket()=default;
 	Ticket(int reservationId);
 	~Ticket();
 
