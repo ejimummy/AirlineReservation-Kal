@@ -10,8 +10,8 @@ class Reservation
 
 public:
 	Reservation() = default;
-	Reservation(const int id, const Flight& flight, const Passenger& passenger, const string& seatNumber );
-	
+	Reservation(const int id, const Flight& flight, const Passenger& passenger, const string& seatNumber);
+
 	void display() const;
 
 	//Getters and Setters
@@ -32,7 +32,5 @@ private:
 	int mID;
 	Flight mReservedFlight;
 	Passenger mReservedPassenger;
-	string mReservedSeatNumber
-
-
+	string mReservedSeatNumber;
 };

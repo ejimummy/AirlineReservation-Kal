@@ -6,21 +6,20 @@
 using std::string;
 using namespace std;
 
-class ScheduleManager {
+void displayTicket(int reservationId)
+{
+	//use FileHelper to retrieve the ticket that corresponds to the reservation number
+	//if no ticket exists give error, did they remember to check in?
+	//display ticket information including Name, Data, Flight#, Seat#, Destination city, and time
+}
 
-public:
-	void displayTicket(int reservationId)
-	{
-		//use FileHelper to retrieve the ticket that corresponds to the reservation number
-		//if no ticket exists give error, did they remember to check in?
-		//display ticket information including Name, Data, Flight#, Seat#, Destination city, and time
-	}
+void cancelReservationId()
+{
+}
 
-	void passengerCheckin(int reservationId)
-	{
-		Ticket myTicket(reservationId);
-		cout << "Thank you for checking in. Below is your ticket to board.";
-		displayTicket(reservationId);
-	}
-
-};
+void passengerCheckin(int reservationId)
+{
+	Ticket myTicket(reservationId);
+	cout << "Thank you for checking in. Below is your ticket to board.";
+	displayTicket(reservationId);
+}

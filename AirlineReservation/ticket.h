@@ -27,8 +27,6 @@ public:
 
 	void setTicketId();
 
-	int getTicketId();
-
 	Flight getReservedFlight();
 
 	void setReservedFlight(Flight flight);

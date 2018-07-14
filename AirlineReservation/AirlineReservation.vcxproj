@@ -154,7 +154,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ticket.h" />
     <ClInclude Include="flight.h" />
-    <ClInclude Include="scheduleManager.h"/>
+    <ClInclude Include="scheduleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AirlineReservation.cpp" />
@@ -162,12 +162,7 @@
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="Reservation2.cpp" />
     <ClCompile Include="flight.cpp" />
-    <ClCompile Include="ScheduleManager.cpp" >
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="ScheduleManager.cpp" />
     <ClCompile Include="Ticket.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
