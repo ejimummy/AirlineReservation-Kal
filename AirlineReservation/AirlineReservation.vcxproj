@@ -147,6 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Borrame\AirlineReservation\Passenger.h" />
+    <ClInclude Include="..\..\Borrame\AirlineReservation\Reservation.h" />
+    <ClInclude Include="..\..\Borrame\AirlineReservation\Reservation2.h" />
+    <ClInclude Include="..\..\Borrame\AirlineReservation\ticket.h" />
     <ClInclude Include="flight.h" />
     <ClInclude Include="scheduleManager.h" />
     <ClInclude Include="stdafx.h" />
@@ -154,6 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Borrame\AirlineReservation\flight.cpp" />
+    <ClCompile Include="..\..\Borrame\AirlineReservation\Passenger.cpp" />
+    <ClCompile Include="..\..\Borrame\AirlineReservation\Reservation.cpp" />
+    <ClCompile Include="..\..\Borrame\AirlineReservation\Reservation2.cpp" />
+    <ClCompile Include="..\..\Borrame\AirlineReservation\Ticket.cpp" />
     <ClCompile Include="AirlineReservation.cpp" />
     <ClCompile Include="ScheduleManager.cpp" />
     <ClCompile Include="stdafx.cpp">
