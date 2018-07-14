@@ -9,7 +9,7 @@ class ScheduleManager {
 	public:
 	ScheduleManager() = default;
 
-	//int reserveFlight(Passenger p, Flight f);
+	static int reserveFlight(Passenger p, Flight f);
 	void displayTicket(int reservationId);
 	void cancelReservationId();
 	void passengerCheckin(int reservationId);

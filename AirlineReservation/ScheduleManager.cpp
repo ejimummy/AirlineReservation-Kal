@@ -3,6 +3,8 @@
 //#include "fileHelper.h"
 #include<iostream>
 #include<string>
+#include <vector>
+#include "Reservation.h"
 using std::string;
 using namespace std;
 
@@ -22,4 +24,17 @@ void passengerCheckin(int reservationId)
 	Ticket myTicket(reservationId);
 	cout << "Thank you for checking in. Below is your ticket to board.";
 	displayTicket(reservationId);
+}
+
+ int ScheduleManager::reserveFlight(Passenger p, Flight f)
+{
+	 //call retrieveAllReservations and get the last passenger ID used 
+	 vector<Reservation> AllReservations = FileHelper.retrieveAllReservations();
+	 int rid = AllReservations.size() + 1;
+	 string seatnumber;
+	 //need to update seat number
+	Reservation r = Reservation(rid, f, p,seatnumber );
+	r = FileHelper.addReservation(r);
+	
+	return rid;
 }
