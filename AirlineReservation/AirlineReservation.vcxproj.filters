@@ -27,16 +27,16 @@
     <ClInclude Include="flight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Borrame\AirlineReservation\Passenger.h">
+    <ClInclude Include="Reservation2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Borrame\AirlineReservation\Reservation.h">
+    <ClInclude Include="ticket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Borrame\AirlineReservation\Reservation2.h">
+    <ClInclude Include="Reservation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Borrame\AirlineReservation\ticket.h">
+    <ClInclude Include="Passenger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,19 +50,19 @@
     <ClCompile Include="ScheduleManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Borrame\AirlineReservation\flight.cpp">
+    <ClCompile Include="flight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Borrame\AirlineReservation\Passenger.cpp">
+    <ClCompile Include="Passenger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Borrame\AirlineReservation\Reservation.cpp">
+    <ClCompile Include="Reservation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Borrame\AirlineReservation\Reservation2.cpp">
+    <ClCompile Include="Reservation2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Borrame\AirlineReservation\Ticket.cpp">
+    <ClCompile Include="Ticket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
