@@ -21,7 +21,7 @@ Flight::Flight(const int id, const time_t date, const time_t departureTime, cons
 
 void Flight::display() const
 {
-	cout << "Flight Id:        " <<mflightId << endl;
+	cout << "Flight Id:        " << mflightId << endl;
 	cout << "Date              " << mdate << endl;
 	cout << "DepartureTime:    " << mdepartureTime << endl;
 	cout << "ArrivalTime:      " << marrivalTime << endl;
@@ -78,7 +78,6 @@ void Flight::setDepartureGate(const string & departureGate)
 
 const string & Flight::getDepartureGate() const
 {
-	// TODO: insert return statement here
 	return mdepartureGate;
 }
 
@@ -89,7 +88,6 @@ void Flight::setArrivalGate(const string & arrivalGate)
 
 const string & Flight::getArrivalGate() const
 {
-	// TODO: insert return statement here
 	return marrivalGate;
 }
 

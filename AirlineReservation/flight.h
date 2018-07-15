@@ -12,8 +12,7 @@ public:
 	Flight() = default;
 	Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string	departureGate,
 		const std::string arrivalGate,const airportsEnum departureAirport,const airportsEnum airrvalAirport);
-	void display() const;
-
+	
 	// Getters and Setters
 	void setId(int id);
 	int getId() const;
@@ -33,6 +32,9 @@ public:
 	const airportsEnum  getAirrvalAirpot() const;
 	void setFlightStatus(const flightstatusEnum flightStatus);
 	const flightstatusEnum  getFlightStatus();
+
+	// other methods
+	void display() const;
 
 private:
 	int mflightId=-1;
