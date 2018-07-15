@@ -13,54 +13,55 @@ using namespace std;
 //	mReservedPassenger = passenger;
 //	mReservedSeatNumber = seatNumber;
 //}
+namespace AirlineReservation {
+	void Reservation::display() const
+	{
+		//not sure how to write this with flight and player. 
+		//what exactly do we want to see in a reservation
+		//mReservedFlight.display();
+		cout << " ";
+		mReservedPassenger.display();
+		cout << " ";
+		cout << mReservedSeatNumber;
+	}
 
-void Reservation::display() const
-{
-	//not sure how to write this with flight and player. 
-	//what exactly do we want to see in a reservation
-	//mReservedFlight.display();
-	cout << " ";
-	mReservedPassenger.display();
-	cout << " ";
-	cout << mReservedSeatNumber;
-}
+	void Reservation::setReservedID(int id)
+	{
+		mID = id;
+	}
 
-void Reservation::setReservedID(int id)
-{
-	mID = id;
-}
+	int Reservation::getReservedID() const
+	{
+		return mID;
+	}
 
-int Reservation::getReservedID() const
-{
-	return mID;
-}
+	void Reservation::setReservedFlight(const Flight & flight)
+	{
+		mReservedFlight = flight;
+	}
 
-void Reservation::setReservedFlight(const Flight & flight)
-{
-	mReservedFlight = flight;
-}
+	const Flight & Reservation::getReservedFlight() const
+	{
+		return mReservedFlight;
+	}
 
-const Flight & Reservation::getReservedFlight() const
-{
-	return mReservedFlight;
-}
+	void Reservation::setReservedPassenger(const Passenger & passenger)
+	{
+		mReservedPassenger = passenger;
+	}
 
-void Reservation::setReservedPassenger(const Passenger & passenger)
-{
-	mReservedPassenger = passenger;
-}
+	const Passenger & Reservation::getReservedPassenger() const
+	{
+		return mReservedPassenger;
+	}
 
-const Passenger & Reservation::getReservedPassenger() const
-{
-	return mReservedPassenger;
-}
+	void Reservation::setSeatNumber(const string & seatNumber)
+	{
+		mReservedSeatNumber = seatNumber;
+	}
 
-void Reservation::setSeatNumber(const string & seatNumber)
-{
-	mReservedSeatNumber = seatNumber;
-}
-
-const string & Reservation::getSeatNumber() const
-{
-	return mReservedSeatNumber;
+	const string & Reservation::getSeatNumber() const
+	{
+		return mReservedSeatNumber;
+	}
 }

@@ -1,16 +1,28 @@
 #pragma once
 //#include "Reservation.h"
 //#include "flight.h"
+
 //#include "ticket.h"
 
+namespace AirlineReservation {
+	
+	class ScheduleManager {
+		private:
+			//std::vector<Flight> mAllFlights;
+		public:
+			
+			ScheduleManager() = default;
 
-class ScheduleManager {
-public:
-	ScheduleManager() = default;
-
-	//int reserveFlight(Passenger p, Flight f);
-	void displayTicket(int reservationId);
-	void cancelReservationId();
-	void passengerCheckin(int reservationId);
-	//Ticket flightCheckIn(int reservationId);
-};
+			//int reserveFlight(Passenger p, Flight f);
+			void displayTicket(int reservationId);
+			void cancelReservationId();
+			void passengerCheckin(int reservationId);
+			//Ticket flightCheckIn(int reservationId);
+	
+			//Flight:
+			//Display All Flights Information
+			void displayAllFlights() const;
+			void AddFlightInformation() const;
+	
+	};
+}

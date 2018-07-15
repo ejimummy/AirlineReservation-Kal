@@ -5,43 +5,44 @@
 #include<string>
 using std::string;
 using namespace std;
+namespace AirlineReservation {
+	class Ticket {
+	private:
+		int mLastTicketId;
+		int mTicketId;
+		Reservation mReservation;
+		Flight mReservedFlight;
+		Passenger mPassenger;
+		string mSeatNumber;
+		//Bitmap mQrCode;
 
-class Ticket {
-private:
-	int mLastTicketId;
-	int mTicketId;
-	Reservation mReservation;
-	Flight mReservedFlight;
-	Passenger mPassenger;
-	string mSeatNumber;
-	//Bitmap mQrCode;
-	
-public:
-	//constructors and destructor
-	Ticket()=default;
-	Ticket(int reservationId);
-	~Ticket();
+	public:
+		//constructors and destructor
+		Ticket() = default;
+		Ticket(int reservationId);
+		~Ticket();
 
-	//getters and setters
-	int getTicketId();
+		//getters and setters
+		int getTicketId();
 
-	void setTicketId();
+		void setTicketId();
 
-	Flight getReservedFlight();
+		Flight getReservedFlight();
 
-	void setReservedFlight(Flight flight);
+		void setReservedFlight(Flight flight);
 
-	Passenger getPassenger();
+		Passenger getPassenger();
 
-	void setPassenger(Passenger p);
+		void setPassenger(Passenger p);
 
-	string getSeatNumber();
+		string getSeatNumber();
 
-	void setSeatNumber(string seatNumber);
-		
-	//methods
-	/*void createQRCode(); */
+		void setSeatNumber(string seatNumber);
 
-	
+		//methods
+		/*void createQRCode(); */
 
-};
+
+
+	};
+}
