@@ -5,6 +5,7 @@
 using std::string;
 using namespace std;
 
+
 Flight::Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string	departureGate,
 	const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport)
 {

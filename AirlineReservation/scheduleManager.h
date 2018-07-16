@@ -1,5 +1,6 @@
 #pragma once
-//#include "Reservation.h"
+
+#include "Reservation.h"
 //#include "flight.h"
 //#include "ticket.h"
 
@@ -7,8 +8,7 @@
 class ScheduleManager {
 public:
 	ScheduleManager() = default;
-
-	//int reserveFlight(Passenger p, Flight f);
+	static Reservation& reserveFlight();
 	void displayTicket(int reservationId);
 	void cancelReservationId();
 	void passengerCheckin(int reservationId);

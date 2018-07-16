@@ -6,25 +6,27 @@ using std::string;
 using namespace std;
 
 
-//Reservation::Reservation(const int id, const Flight & flight, const Passenger & passenger, const string & seatNumber)
-//{
-//	mID = id;
-//	mReservedFlight = flight;
-//	mReservedPassenger = passenger;
-//	mReservedSeatNumber = seatNumber;
-//}
+Reservation::Reservation(const int id, const Flight & flight, const Passenger & passenger, const string & seatNumber)
+{
+	mID = id;
+	mReservedFlight = flight;
+	mReservedPassenger = passenger;
+	mReservedSeatNumber = seatNumber;
+}
 
 void Reservation::display() const
 {
-	//not sure how to write this with flight and player. 
-	//what exactly do we want to see in a reservation
-	//mReservedFlight.display();
-	cout << " ";
+	cout << "Here is your reservation" << endl;
+	cout << "=================================" << endl;
+	cout << " Reserved Flight: ";
+	mReservedFlight.display();
+	cout << " Reserved Passanger: ";
 	mReservedPassenger.display();
-	cout << " ";
+	cout << endl;
+	cout << " Reserved Seat: ";
 	cout << mReservedSeatNumber;
+	cout << endl;
 }
-
 void Reservation::setReservedID(int id)
 {
 	mID = id;
