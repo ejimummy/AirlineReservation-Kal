@@ -4,10 +4,10 @@
 #include<string>
 using std::string;
 using namespace std;
+
 namespace AirlineReservation {
 	class Reservation
 	{
-
 	public:
 		Reservation() = default;
 		Reservation(const int id, const Flight& flight, const Passenger& passenger, const string& seatNumber);

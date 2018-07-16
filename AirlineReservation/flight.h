@@ -2,15 +2,19 @@
 # include<string>
 #include<ctime>
 namespace AirlineReservation {
+	 enum airportsEnum { SEA, HYD, DEL, DWT, KOL, LA };
+	 enum flightstatusEnum { Delayed, Boarding, Ontime, Deparated };
 	
 	class Flight {
 	public:
 		// enum declaration
-		enum airportsEnum { SEA, HYD, DEL, DWT, KOL, LOA };
-		enum flightstatusEnum { Delayed, Boarding, Ontime, Deparated };
 
 		// constructors
 		Flight() = default;
+
+		//Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string departureGate,
+		//	const std::string arrivalGate);
+
 		Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string    departureGate,
 			const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport);
 
@@ -21,11 +25,11 @@ namespace AirlineReservation {
 		void setFlightId(int id);
 		int getFlightId() const;
 
-		//void setAirplaneName(std::string& airplaneName);
-		//std::string& getAirplaneName();
+		void setAirplaneName(std::string& airplaneName);
+		std::string& getAirplaneName();
 
-		//void setFlightNumber(std::string& flightNumber);
-		//std::string& getFlightNumber();
+		void setFlightNumber(std::string& flightNumber);
+		std::string& getFlightNumber();
 
 		
 		void setDate(const time_t date);
