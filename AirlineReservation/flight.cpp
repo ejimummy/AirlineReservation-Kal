@@ -4,6 +4,7 @@
 #include<iomanip>
 
 using namespace std;
+
 namespace AirlineReservation {
 	Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string origin,
 	const std::string destination, const std::string departureAirport, const std::string airrvalAirport)
