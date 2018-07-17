@@ -66,3 +66,8 @@ const string & Reservation::getSeatNumber() const
 {
 	return mReservedSeatNumber;
 }
+
+//defining equality so finidng by reservationId works in a collection
+bool Reservation::operator==(const Reservation& other) const{
+	return this->mID == other.mID;
+}

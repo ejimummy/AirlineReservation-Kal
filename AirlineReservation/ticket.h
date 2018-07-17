@@ -1,4 +1,5 @@
 #pragma
+
 #include "Passenger.h"
 #include "Flight.h"
 #include "Reservation.h"
@@ -15,33 +16,41 @@ private:
 	Passenger mPassenger;
 	string mSeatNumber;
 	//Bitmap mQrCode;
-	
+
 public:
 	//constructors and destructor
-	Ticket()=default;
-	Ticket(int reservationId);
-	~Ticket();
+	Ticket();
+	Ticket(const Reservation& reservation);
+	
 
 	//getters and setters
-	int getTicketId();
+	int getTicketId() const;
 
 	void setTicketId();
 
-	Flight getReservedFlight();
+	Flight getReservedFlight() const;
 
-	void setReservedFlight(Flight flight);
+	void setReservedFlight(const Flight& flight);
 
-	Passenger getPassenger();
+	Passenger getPassenger() const;
 
-	void setPassenger(Passenger p);
+	void setPassenger(const Passenger& p);
 
-	string getSeatNumber();
+	string getSeatNumber() const;
 
 	void setSeatNumber(string seatNumber);
-		
+
+	void setLastTicketId();
+
+	int getLastTicketId();
+
+	string getPassengerName() const;
+
+	string getFlightDate() const;
+
 	//methods
 	/*void createQRCode(); */
 
-	
 
-};
+
+	};

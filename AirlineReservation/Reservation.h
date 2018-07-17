@@ -28,6 +28,8 @@ public:
 	void setSeatNumber(const string& seatNumber);
 	const string& getSeatNumber() const;
 
+	bool operator== (const Reservation& other) const;
+
 private:
 	int mID;
 	Flight mReservedFlight;

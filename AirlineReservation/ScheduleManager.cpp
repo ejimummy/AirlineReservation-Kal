@@ -6,6 +6,7 @@
 #include "flight.h"
 #include "Passenger.h"
 #include "Reservation.h"
+#include<unordered_map>
 
 using std::string;
 using namespace std;
@@ -20,12 +21,28 @@ vector<Flight> AllFlights;
 vector<Passenger> AllPassengers;
 vector<Reservation> AllReservations;
 
+void ScheduleManager::displayTicket(const Ticket& ticket)
+{
+	//displays a ticket when the ticket is known
+	cout << "Name: " << ticket.getPassengerName() << " Date: " << ticket.getFlightDate();
+}
+
 void ScheduleManager::displayTicket(int reservationId)
 {
-	//use FileHelper to retrieve the ticket that corresponds to the reservation number
-	//if no ticket exists give error, did they remember to check in?
-	//display ticket information including Name, Data, Flight#, Seat#, Destination city, and time
+	
+		std::unordered_map<int, Ticket>::const_iterator it = ALLTickets.find(reservationId);
+		
+			if (it != ALLTickets.end())
+			{
+				displayTicket(it->second);
+			}
+
+			else {
+				cout << "Invalid reservation number. Please check your records and verify you have already checked-in.";
+			}	
+	
 }
+
 
 void ScheduleManager::cancelReservationId()
 {
@@ -33,12 +50,30 @@ void ScheduleManager::cancelReservationId()
 
 void ScheduleManager::passengerCheckin(int reservationId)
 {
-	/*Ticket myTicket(reservationId);
-	cout << "Thank you for checking in. Below is your ticket to board.";
-	displayTicket(reservationId);*/
+	Reservation target;
+	target.setReservedID(reservationId);
+
+	auto it = std::find(AllReservations.begin(), AllReservations.end(), target);
+	if (it != AllReservations.end())
+	{
+		
+		//create ticket, pass in found reservation object
+		Ticket passengerTicket(*it);
+
+		//add the ticket to the map
+		ALLTickets.insert(std::make_pair(reservationId, passengerTicket));
+
+		//display ticket for the user
+		displayTicket(passengerTicket);
+	}
+		
+	else {
+		cout << "Invalid reservation number. Please check your records and try check-in again.";
+	}
+	
 }
 
-Reservation& ScheduleManager::reserveFlight()
+Reservation ScheduleManager::reserveFlight()
 {
 	int selectedFlightID;
 	
@@ -107,5 +142,6 @@ Reservation& ScheduleManager::reserveFlight()
 	
 	return r;
 }
+
 
 

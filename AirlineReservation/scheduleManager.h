@@ -1,14 +1,18 @@
 #pragma once
-
+#include <unordered_map>
 #include "Reservation.h"
-//#include "flight.h"
-//#include "ticket.h"
+#include "ticket.h"
 
 
 class ScheduleManager {
+
+private:
+	std::unordered_map<int, Ticket> ALLTickets;
+
 public:
 	ScheduleManager() = default;
-	static Reservation& reserveFlight();
+	static Reservation reserveFlight();
+	void displayTicket(const Ticket& ticket);
 	void displayTicket(int reservationId);
 	void cancelReservationId();
 	void passengerCheckin(int reservationId);
