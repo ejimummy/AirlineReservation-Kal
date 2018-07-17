@@ -1,16 +1,14 @@
 #pragma once
 //#include "Reservation.h"
-//#include "flight.h"
-//#include <vector>
+#include "flight.h"
+#include <vector>
 //#include "ticket.h"
 
 namespace AirlineReservation {
-
 	class ScheduleManager {
 		private:
-			//std::vector<Flight> mAllFlights;
+			std::vector<Flight> mAllFlights;
 		public:
-			
 			ScheduleManager() = default;
 
 			//int reserveFlight(Passenger p, Flight f);
@@ -22,11 +20,11 @@ namespace AirlineReservation {
 			//Flight:
 			//Display All Flights Information
 			void displayAllFlights() const;
-			void addFlightInformation() const;
+			void addFlightInformation();
 
 			//File - Read and Write Functions
-			/*void writeFlightVectorToFile(vector<Flight> allFlights) const;
-			vector<Flight> readFlightVectorFromFile() const;*/
+			void writeFlightVectorToFile(std::vector<Flight> allFlights);
+			void readFlightVectorFromFile() const;
 	
 	};
 }
