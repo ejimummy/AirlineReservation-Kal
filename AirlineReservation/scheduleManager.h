@@ -9,6 +9,7 @@ namespace AirlineReservation {
 	class ScheduleManager {
 		private:
 			//std::vector<Flight> mAllFlights;
+			int flightId;
 		public:
 			
 			ScheduleManager() = default;
@@ -23,6 +24,7 @@ namespace AirlineReservation {
 			//Display All Flights Information
 			void displayAllFlights() const;
 			void addFlightInformation() const;
+			void deleteFlight(int flightId) ;
 
 			//File - Read and Write Functions
 			/*void writeFlightVectorToFile(vector<Flight> allFlights) const;

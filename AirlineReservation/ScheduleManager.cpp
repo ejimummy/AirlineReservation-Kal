@@ -42,10 +42,40 @@ namespace AirlineReservation {
 		//writeFlightVectorToFile(mAllFlights);
 	
 	}
+
+	void ScheduleManager::deleteFlight(int flightId) 
+	{
+		if (mAllFlights.size() <= 0) {
+			cout << "There are no flights to delete" << endl;
+			return;
+		}
+		for (unsigned int i = 0; i < mAllFlights.size();i++) {
+			if (mAllFlights[i].getFlightId()==flightId) {
+				mAllFlights.erase(mAllFlights.begin()+i);
+				cout << "Flight with FlightId: " << flightId << " was successfully deleted" << endl;
+				return;
+			}
+		}
+		cout << "This flight id doesn't exist!" << endl;
+		cout << "To go back to main menu enter'0'" << endl;
+		cout << "Please enter the correct FlightId" << endl;
+		
+		cin >> flightId;
+		if (flightId == 0)
+			return;
+		else
+		deleteFlight(flightId);
+        
+
+	}
 	
 	//Dsiplay all Flight Information
 	void ScheduleManager:: displayAllFlights() const {
-		cout << " Display all flights info from vector" << endl;
+		if (mAllFlights.size() <= 0) {
+			cout << "There are no Flights" << endl;
+			return;
+		}
+		cout << " Display all flights information" << endl;
 		//mAllFlights = readFlightVectorFromFile();
 		/*for (unsigned int i = 0; i < mAllFlights.size(); i++) {
 			mAllFlights[i].displayFlight();

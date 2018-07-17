@@ -32,14 +32,14 @@ namespace AirlineReservation {
 	void Flight::displayFlight() const
 	{
 		const char airport[][10]={ "SEA", "HYD", "DEL","DWT", "KOL","LA" };
-		cout << "Flight Id:        " << mflightId << endl;
-		cout << "Date              " << mdate << endl;
-		cout << "DepartureTime:    " << mdepartureTime << endl;
-		cout << "ArrivalTime:      " << marrivalTime << endl;
-		cout << "Departure Gate:   " << mdepartureGate << endl;
-		cout << "Arrival Gate:     " << marrivalGate << endl;
-		cout << "Departure Airport:" << airport[mdepartureAirport] << endl;
-		cout << "Arrival Airport:  " << airport[mairrvalAirport] << endl;
+		cout << "Flight Id         :" << mflightId << endl;
+		cout << "Date              :" << mdate << endl;
+		cout << "DepartureTime     :" << mdepartureTime << endl;
+		cout << "ArrivalTime       :" << marrivalTime << endl;
+		cout << "Departure Gate    :" << mdepartureGate << endl;
+		cout << "Arrival Gate      :" << marrivalGate << endl;
+		cout << "Departure Airport :" << airport[mdepartureAirport] << endl;
+		cout << "Arrival Airport   :" << airport[mairrvalAirport] << endl;
 	}
 	void Flight::addFlight() const
 	{
@@ -47,6 +47,7 @@ namespace AirlineReservation {
 		cin >> mdate;
 		cout<<"Enter Depature Time"
 		*/
+		
 	}
 	
 
