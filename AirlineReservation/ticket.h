@@ -6,51 +6,53 @@
 #include<string>
 using std::string;
 using namespace std;
+namespace AirlineReservation {
+	class Ticket {
+	private:
+		int mLastTicketId;
+		int mTicketId;
+		Reservation mReservation;
+		Flight mReservedFlight;
+		Passenger mPassenger;
+		string mSeatNumber;
+		//Bitmap mQrCode;
 
-class Ticket {
-private:
-	int mLastTicketId;
-	int mTicketId;
-	Reservation mReservation;
-	Flight mReservedFlight;
-	Passenger mPassenger;
-	string mSeatNumber;
-	//Bitmap mQrCode;
+	public:
+		//constructors and destructor
+		Ticket();
+		Ticket(const Reservation& reservation);
 
-public:
-	//constructors and destructor
-	Ticket();
-	Ticket(const Reservation& reservation);
-	
 
-	//getters and setters
-	int getTicketId() const;
+		//getters and setters
+		int getTicketId() const;
 
-	void setTicketId();
+		void setTicketId();
 
-	Flight getReservedFlight() const;
+		Flight getReservedFlight() const;
 
-	void setReservedFlight(const Flight& flight);
+		void setReservedFlight(const Flight& flight);
 
-	Passenger getPassenger() const;
+		Passenger getPassenger() const;
 
-	void setPassenger(const Passenger& p);
+		void setPassenger(const Passenger& p);
 
-	string getSeatNumber() const;
+		string getSeatNumber() const;
 
-	void setSeatNumber(string seatNumber);
+		void setSeatNumber(string seatNumber);
 
-	void setLastTicketId();
+		void setLastTicketId();
 
-	int getLastTicketId();
+		int getLastTicketId();
 
-	string getPassengerName() const;
+		string getPassengerName() const;
 
-	string getFlightDate() const;
+		string getFlightDate() const;
 
-	//methods
-	/*void createQRCode(); */
+		//methods
+		/*void createQRCode(); */
 
 
 
 	};
+
+}
