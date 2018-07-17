@@ -2,7 +2,7 @@
 # include<string>
 #include<ctime>
 namespace AirlineReservation {
-	enum airportsEnum { SEA, HYD, DEL, DWT, KOL, LA };
+	//enum airportsEnum { SEA, HYD, DEL, DWT, KOL, LA };
 	enum flightstatusEnum { Delayed, Boarding, Ontime, Deparated };
 
 	
@@ -13,7 +13,7 @@ namespace AirlineReservation {
 		// constructors
 		Flight() = default;
 		Flight(const int id, const std::string date, const std::string  departureTime, const std::string arrivalTime, const std::string    departureGate,
-			const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport);
+			const std::string arrivalGate, const std::string departureAirport, const std::string airrvalAirport);
 
 		void displayFlight() const;
 		void addFlight()const;
@@ -39,10 +39,10 @@ namespace AirlineReservation {
 		const std::string& getDepartureGate() const;
 		void setArrivalGate(const std::string& arrivalGate);
 		const std::string& getArrivalGate() const;
-		void setdepartureAirport(const airportsEnum departureAirport);
-		const airportsEnum getDepartureAirport() const;
-		void setAirrvalAirport(const airportsEnum airrvalAirport);
-		const airportsEnum  getAirrvalAirpot() const;
+		void setdepartureAirport(const std::string& departureAirport);
+		const std::string& getDepartureAirport() const;
+		void setAirrvalAirport(const std::string& airrvalAirport);
+		const std::string&  getAirrvalAirpot() const;
 		void setFlightStatus(const flightstatusEnum flightStatus);
 		const flightstatusEnum  getFlightStatus();
 
@@ -56,8 +56,8 @@ namespace AirlineReservation {
 		std::string marrivalTime;
 		std::string    mdepartureGate;
 		std::string marrivalGate;
-		airportsEnum mdepartureAirport;
-		airportsEnum mairrvalAirport;
+		std::string mdepartureAirport;
+		std::string mairrvalAirport;
 		flightstatusEnum mflightStatus;
 		//airplane airplane;
 

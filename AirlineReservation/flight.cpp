@@ -16,8 +16,8 @@ namespace AirlineReservation {
 		//mairrvalAirport = airrvalAirport;
 	}*/
 
-	Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string departureGate,
-		const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport)
+	/*Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string departureGate,
+		const std::string arrivalGate, const std::string departureAirport, const std::string airrvalAirport)
 	{
 		mflightId = id;
 		mdate = date;
@@ -27,7 +27,7 @@ namespace AirlineReservation {
 		marrivalGate = arrivalGate;
 		mdepartureAirport = departureAirport;
 		mairrvalAirport = airrvalAirport;
-	}
+	}*/
 
 	void Flight::displayFlight() const
 	{
@@ -38,8 +38,8 @@ namespace AirlineReservation {
 		cout << "ArrivalTime       :" << marrivalTime << endl;
 		cout << "Departure Gate    :" << mdepartureGate << endl;
 		cout << "Arrival Gate      :" << marrivalGate << endl;
-		cout << "Departure Airport :" << airport[mdepartureAirport] << endl;
-		cout << "Arrival Airport   :" << airport[mairrvalAirport] << endl;
+		cout << "Departure Airport :" << mdepartureAirport << endl;
+		cout << "Arrival Airport   :" << mairrvalAirport << endl;
 	}
 	void Flight::addFlight() const
 	{
@@ -126,22 +126,22 @@ namespace AirlineReservation {
 		return marrivalGate;
 	}
 
-	void Flight::setdepartureAirport(const airportsEnum departureAirport)
+	void Flight::setdepartureAirport(const std::string& departureAirport)
 	{
 		mdepartureAirport = departureAirport;
 	}
 
-	const airportsEnum  Flight::getDepartureAirport() const
+	const std::string&  Flight::getDepartureAirport() const
 	{
 		return mdepartureAirport;
 	}
 
-	void Flight::setAirrvalAirport(const airportsEnum airrvalAirport)
+	void Flight::setAirrvalAirport(const std::string& airrvalAirport)
 	{
 		mairrvalAirport = airrvalAirport;
 	}
 
-	const airportsEnum Flight::getAirrvalAirpot() const
+	const std::string& Flight::getAirrvalAirpot() const
 	{
 		return mairrvalAirport;
 	}
