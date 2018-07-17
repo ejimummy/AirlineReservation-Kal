@@ -29,6 +29,9 @@ namespace AirlineReservation {
 			//File - Read and Write Functions
 			/*void writeFlightVectorToFile(vector<Flight> allFlights) const;
 			vector<Flight> readFlightVectorFromFile() const;*/
+
+			// Just for Testing
+			void addDummyFlightInformation() const;
 	
 	};
 }

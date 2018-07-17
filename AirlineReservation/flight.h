@@ -15,8 +15,11 @@ namespace AirlineReservation {
 		//Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string departureGate,
 		//	const std::string arrivalGate);
 
+		
 		Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string    departureGate,
 			const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport);
+		
+		
 
 		void displayFlight() const;
 		void addFlight()const;
@@ -63,6 +66,9 @@ namespace AirlineReservation {
 		airportsEnum mairrvalAirport;
 		flightstatusEnum mflightStatus;
 		//airplane airplane;
+		tm * mdateF;
+		tm * mdepartureTimeF;
+		tm * marrivalTimeF;
 
 	};
 }

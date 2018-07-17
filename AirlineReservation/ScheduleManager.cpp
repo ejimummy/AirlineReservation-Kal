@@ -103,4 +103,17 @@ namespace AirlineReservation {
 			allFlights[i].displayFlight();
 		}
 	}*/
+
+
+	//Just  to Test Search 
+
+	void ScheduleManager::addDummyFlightInformation() const {
+		airportsEnum  airPortName = airportsEnum::LA;
+		 int nextFlightId = mAllFlights.size() + 1; // WS This is going to generate a duplicated ID because you are allowing to erase.
+		Flight theFlight(nextFlightId, time(0), time(0), time(0), "2A", "2B", airPortName, airPortName);
+		theFlight.setAirrvalAirport(airportsEnum::SEA);		
+		mAllFlights.push_back(theFlight);
+		//writeFlightVectorToFile(mAllFlights);
+
+	}
 }
