@@ -12,8 +12,8 @@ namespace AirlineReservation {
 		
 		// constructors
 		Flight() = default;
-		Flight(const int id, const std::string date, const std::string  departureTime, const std::string arrivalTime, const std::string    departureGate,
-			const std::string arrivalGate, const std::string departureAirport, const std::string airrvalAirport);
+		Flight(const int id, const std::string date, const std::string  departureTime, const std::string arrivalTime, const std::string   origin,
+			const std::string destination, const std::string departureAirport, const std::string airrvalAirport);
 
 		void displayFlight() const;
 		void addFlight()const;
@@ -35,10 +35,10 @@ namespace AirlineReservation {
 		const std::string getDepartureTime() const;
 		void setArrivalTime(const std::string arrivalTime);
 		const std::string getArrivalTime() const;
-		void setDepartureGate(const std::string& departureGate);
-		const std::string& getDepartureGate() const;
-		void setArrivalGate(const std::string& arrivalGate);
-		const std::string& getArrivalGate() const;
+		void setOrigin(const std::string& origin);
+		const std::string& getOrigin() const;
+		void setDestination(const std::string& departure);
+		const std::string& getDestination() const;
 		void setdepartureAirport(const std::string& departureAirport);
 		const std::string& getDepartureAirport() const;
 		void setAirrvalAirport(const std::string& airrvalAirport);
@@ -54,8 +54,8 @@ namespace AirlineReservation {
 		std::string mdate;
 		std::string mdepartureTime;
 		std::string marrivalTime;
-		std::string    mdepartureGate;
-		std::string marrivalGate;
+		std::string morigin;
+		std::string mdestination;
 		std::string mdepartureAirport;
 		std::string mairrvalAirport;
 		flightstatusEnum mflightStatus;

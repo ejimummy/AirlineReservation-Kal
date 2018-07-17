@@ -33,33 +33,37 @@ namespace AirlineReservation {
 	}
 	//Add  flight Information to vector
 	void ScheduleManager::addFlightInformation() const {
-		string tempDate, departureAirport, arrivalAirport, arrivalTime,departureTime,arrivalGate,DepartureGate;
-		cout << "Enter Departure airport "<<  endl;
-		cin >> departureAirport;
-		cout << "Enter Arrival airport " << endl;
-		cin >> arrivalAirport;
+		string tempDate, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination , flightNumber;
+		cout << "Enter Flight Number" << endl;
+		cin >> flightNumber;
+		cout << "Enter Origin " << endl;
+		cin >> origin;
+		cout << "Enter Destination " << endl;
+		cin >> destination;
 		cout << "Enter Date(MM/DD/YYYY)" << endl;
 		cin >> tempDate;
 		cout << "Enter Departure Time(HH:MM AM/PM)"<<endl;
 		cin >> departureTime;
 		cout << "Enter Arrival Time(HH:MM AM/PM)"<<endl;
 		cin >> arrivalTime;
-		cout << "Enter Departure Gate " << endl;
-		cin >> DepartureGate;
-		cout << "Enter Arrival Gate " << endl;
-		cin >> arrivalGate;
+		cout << "Enter Departure airport " << endl;
+		cin >> departureAirport;
+		cout << "Enter Arrival airport " << endl;
+		cin >> arrivalAirport;
+		
 		//cout
 		Flight theFlight;
 		//Flight theFlight(1,tempDate, "9:00PM", "11:00Am", "2A", "2B","la","ca");
 		//theFlight.setAirrvalAirport(airportsEnum :: SEA);
 		theFlight.setFlightId(mAllFlights.size()+1);
+		theFlight.setFlightNumber(flightNumber);
 		theFlight.setDate(tempDate);
 		theFlight.setdepartureAirport(departureAirport);
 		theFlight.setAirrvalAirport(arrivalAirport);
 		theFlight.setArrivalTime(arrivalTime);
 		theFlight.setDepartureTime(departureTime);
-		theFlight.setArrivalGate(arrivalGate);
-		theFlight.setDepartureGate(DepartureGate);
+		theFlight.setOrigin(origin);
+		theFlight.setDestination(destination);
 
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
