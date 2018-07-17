@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace std;
 namespace AirlineReservation {
-	/*Flight::Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string departureGate,
+	/*Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string departureGate,
 		const std::string arrivalGate)
 	{
 		mflightId = id;
@@ -16,7 +16,7 @@ namespace AirlineReservation {
 		//mairrvalAirport = airrvalAirport;
 	}*/
 
-	Flight::Flight(const int id, const time_t date, const time_t departureTime, const time_t arrivalTime, const std::string departureGate,
+	Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string departureGate,
 		const std::string arrivalGate, const airportsEnum departureAirport, const airportsEnum airrvalAirport)
 	{
 		mflightId = id;
@@ -76,32 +76,32 @@ namespace AirlineReservation {
 	}
 	
 
-	void Flight::setDate(const time_t date)
+	void Flight::setDate(const std::string date)
 	{
 		mdate = date;
 	}
 
-	const time_t Flight::getDate() const
+	const std::string Flight::getDate() const
 	{
 		return mdate;
 	}
 
-	void Flight::setDepartureTime(const time_t departureTime)
+	void Flight::setDepartureTime(const std::string departureTime)
 	{
 		mdepartureTime = departureTime;
 	}
 
-	const time_t Flight::getDepartureTime() const
+	const std::string Flight::getDepartureTime() const
 	{
 		return mdepartureTime;
 	}
 
-	void Flight::setArrivalTime(const time_t arrivalTime)
+	void Flight::setArrivalTime(const std::string arrivalTime)
 	{
 		marrivalTime = arrivalTime;
 	}
 
-	const time_t Flight::getArrivalTime() const
+	const std::string Flight::getArrivalTime() const
 	{
 		return marrivalTime;
 	}

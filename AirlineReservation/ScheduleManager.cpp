@@ -34,7 +34,7 @@ namespace AirlineReservation {
 	//Add  flight Information to vector
 	void ScheduleManager::addFlightInformation() const {
 		airportsEnum  airPortName = airportsEnum::LA;
-		Flight theFlight(1, time(0), time(0), time(0), "2A", "2B", airPortName, airPortName);
+		Flight theFlight(1," 07/16/2018", "9:00PM", "11:00Am", "2A", "2B", airPortName, airPortName);
 		theFlight.setAirrvalAirport(airportsEnum :: SEA);
 		theFlight.setFlightId(mAllFlights.size()+1);
 		theFlight.addFlight();
