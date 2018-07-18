@@ -2,6 +2,8 @@
 #include <unordered_map>
 #include "Reservation.h"
 #include "ticket.h"
+using std::string;
+using namespace std;
 
 namespace AirlineReservation {
 	class ScheduleManager {
@@ -9,13 +11,14 @@ namespace AirlineReservation {
 	private:
 		std::unordered_map<int, Ticket> ALLTickets;
 		std::vector<Flight> mAllFlights;
-
+		vector<Passenger> mAllPassengers;
+		vector<Reservation> mAllReservations;
 	public:
 		ScheduleManager() = default;
-		static Reservation reserveFlight();
+		 Reservation reserveFlight();
 		void displayTicket(const Ticket& ticket);
 		void displayTicket(int reservationId);
-		void cancelReservationId();
+		void cancelReservationId(int reservationId);
 		void passengerCheckin(int reservationId);
 		//Ticket flightCheckIn(int reservationId);
 
