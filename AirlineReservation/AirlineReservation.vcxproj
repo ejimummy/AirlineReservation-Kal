@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="flight.h" />
     <ClInclude Include="Passenger.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="Reservation.h" />
     <ClInclude Include="Reservation2.h" />
     <ClInclude Include="scheduleManager.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="AirlineReservation.cpp" />
     <ClCompile Include="flight.cpp" />
     <ClCompile Include="Passenger.cpp" />
+    <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="Reservation2.cpp" />
     <ClCompile Include="ScheduleManager.cpp" />
