@@ -23,7 +23,7 @@ namespace AirlineReservation {
 		const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
 
 		cout << setw(8) << mflightId << setw(15) << mdate << setw(15) << mdepartureTime
-			<< setw(15) << marrivalTime << setw(12) << morigin << setw(15) << mdestination << setw(15) << mdepartureAirport << setw(20) << mairrvalAirport << "\n";
+			<< setw(15) << marrivalTime << setw(10) << morigin << setw(10) << mdestination << setw(22) << mdepartureAirport << setw(20) << mairrvalAirport << "\n";
 
 	}
 	void Flight::addFlight() const

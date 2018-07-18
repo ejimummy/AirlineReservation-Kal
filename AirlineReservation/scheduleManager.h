@@ -25,6 +25,8 @@ namespace AirlineReservation {
 		void addFlightInformation();
 		void deleteFlight(int flightId);
 		void dummyFlightInformation();
+		vector<Flight> searchFlights(const string& date, const string& from, const string& to) ;
+		void uploadFlightsFromSource() ;
 
 		//File - Read and Write Functions
 		void writeFlightVectorToFile(std::vector<Flight> allFlights);
