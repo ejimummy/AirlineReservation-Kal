@@ -76,6 +76,8 @@ namespace AirlineReservation {
 
 	}
 
+	
+
 	Reservation ScheduleManager::reserveFlight()
 	{
 		int selectedFlightID;
@@ -250,6 +252,10 @@ namespace AirlineReservation {
 			allFlights[i].displayFlight();
 		}
 
+	}
+	Passenger ScheduleManager::retrievePassenger(string email) const{
+
+		return  passenger;
 	}
 }
 

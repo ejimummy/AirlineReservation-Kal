@@ -17,7 +17,7 @@ namespace AirlineReservation {
 		void displayTicket(int reservationId);
 		void cancelReservationId();
 		void passengerCheckin(int reservationId);
-		//Ticket flightCheckIn(int reservationId);
+		Passenger retrievePassenger(string email) const;
 
 		//Flight:
 		//Display All Flights Information

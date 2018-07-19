@@ -48,6 +48,10 @@ namespace AirlineReservation {
 
 		string getFlightDate() const;
 
+		string getFlightNumber() const;
+
+	
+
 		//methods
 		/*void createQRCode(); */
 

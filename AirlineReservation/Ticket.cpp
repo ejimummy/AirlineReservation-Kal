@@ -5,6 +5,8 @@ using std::string;
 using namespace std;
 namespace AirlineReservation {
 
+	static int lastTicketId = 0;
+
 	Ticket::Ticket()
 	{
 
@@ -12,7 +14,7 @@ namespace AirlineReservation {
 
 	Ticket::Ticket(const Reservation& reservation) {
 
-		mTicketId = getLastTicketId() + 1;
+		mTicketId = lastTicketId++;
 		mReservation = reservation;
 		mReservedFlight = reservation.getReservedFlight();
 		mPassenger = reservation.getReservedPassenger();
@@ -36,7 +38,7 @@ namespace AirlineReservation {
 	}
 
 	int Ticket::getLastTicketId() {
-
+		
 		return mLastTicketId;
 	}
 
@@ -78,6 +80,10 @@ namespace AirlineReservation {
 	string Ticket::getFlightDate() const {
 		return mReservedFlight.getDate();
 	}
+
+	/*string Ticket::getFlightNumber() const {
+		return mReservedFlight.getFlightNumber();
+	}*/
 
 }
 	
