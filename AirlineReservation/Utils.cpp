@@ -36,6 +36,17 @@ using namespace std;
 	 return s;
  }
 
+ string Utils::toString(int month, int day, int year) {
+	 string m = to_string(month); 
+	 string d = to_string(day);
+	 if (month < 10)
+		 m = "0" + m;
+	 if (day < 10)
+		 d = "0" + d;
+
+	 return m + "/" + d + "/" + to_string(year);
+ }
+
 Utils::Utils()
 {
 }

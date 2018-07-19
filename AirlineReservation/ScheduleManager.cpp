@@ -302,7 +302,7 @@ namespace AirlineReservation {
 		vector<Flight> results;
 
 		for (Flight& flight : mAllFlights) {
-			if (/*flight.getDate()==date   &&*/
+			if (flight.getDate()==date   &&
 				flight.getOrigin() == from && flight.getDestination() == to) {
 				results.push_back(flight);
 			}
@@ -315,24 +315,24 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight(1, "10/08/2018", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");	
+		Flight theFlight(1, "08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1(1, "10/08/2018", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");
+		Flight theFlight1(1, "08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2(1, "11/08/2018", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight2(1, "08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3(1, "10/08/2018", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight3(1, "08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
