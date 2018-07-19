@@ -41,6 +41,7 @@ namespace AirlineReservation {
 		if (it != ALLTickets.end())
 		{
 			displayTicket(it->second);
+			displayTicket(it->second);
 		}
 
 		else {
@@ -182,18 +183,20 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::addFlightInformation() {
-		string tempDate, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;
+		string tempDate,airplaneName, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;
 		cout << "Enter Flight Number" << endl;
 		cin >> flightNumber;
+		cout << "Enter Airplane Name" << endl;
+		cin >> airplaneName;
 		cout << "Enter Origin " << endl;
 		cin >> origin;
 		cout << "Enter Destination " << endl;
 		cin >> destination;
-		cout << "Enter Date(MM/DD/YYYY)" << endl;
+		cout << "Enter Date(MM/DD/YY)" << endl;
 		cin >> tempDate;
-		cout << "Enter Departure Time(HH:MM AM/PM)" << endl;
+		cout << "Enter Departure Time(HH:MMAM/PM)" << endl;
 		cin >> departureTime;
-		cout << "Enter Arrival Time(HH:MM AM/PM)" << endl;
+		cout << "Enter Arrival Time(HH:MMAM/PM)" << endl;
 		cin >> arrivalTime;
 		cout << "Enter Departure airport " << endl;
 		cin >> departureAirport;
@@ -206,6 +209,7 @@ namespace AirlineReservation {
 		//theFlight.setAirrvalAirport(airportsEnum :: SEA);
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.setFlightNumber(flightNumber);
+		theFlight.setAirplaneName(airplaneName);
 		theFlight.setDate(tempDate);
 		theFlight.setdepartureAirport(departureAirport);
 		theFlight.setAirrvalAirport(arrivalAirport);
@@ -246,13 +250,13 @@ namespace AirlineReservation {
 
 	}
 
-	void ScheduleManager::dummyFlightInformation() {
-		Flight theFlight(1, "10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
+	/*void ScheduleManager::dummyFlightInformation() {
+		Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 	}
-
+*/
 	//Display all Flight Information
 
 	
@@ -303,24 +307,24 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight(1, "08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");	
+		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1(1, "08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");
+		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2(1, "08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3(1, "08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
