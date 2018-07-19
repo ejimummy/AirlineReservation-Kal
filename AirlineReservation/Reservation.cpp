@@ -9,7 +9,7 @@ using namespace std;
 namespace AirlineReservation {
 	Reservation::Reservation(const int id, const Flight & flight, const Passenger & passenger, const string & seatNumber)
 	{
-		mID = id;
+		mReservedID = id;
 		mReservedFlight = flight;
 		mReservedPassenger = passenger;
 		mReservedSeatNumber = seatNumber;
@@ -17,11 +17,14 @@ namespace AirlineReservation {
 
 	void Reservation::display() const
 	{
-		cout << "Here is your reservation" << endl;
+		cout << "Here is your reservation details" << endl;
 		cout << "=================================" << endl;
+		cout << " ReservationID: ";
+		cout << mReservedID;
+		cout << endl;
 		cout << " Reserved Flight: ";
 		mReservedFlight.displayFlight();
-		cout << " Reserved Passanger: ";
+		cout << " Reserved Passenger: ";
 		mReservedPassenger.display();
 		cout << endl;
 		cout << " Reserved Seat: ";
@@ -30,12 +33,12 @@ namespace AirlineReservation {
 	}
 	void Reservation::setReservedID(int id)
 	{
-		mID = id;
+		mReservedID = id;
 	}
 
 	int Reservation::getReservedID() const
 	{
-		return mID;
+		return mReservedID;
 	}
 
 	void Reservation::setReservedFlight(const Flight & flight)
@@ -70,6 +73,6 @@ namespace AirlineReservation {
 
 	//defining equality so finidng by reservationId works in a collection
 	bool Reservation::operator==(const Reservation& other) const {
-		return this->mID == other.mID;
+		return this->mReservedID == other.mReservedID;
 	}
 }

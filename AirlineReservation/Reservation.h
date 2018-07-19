@@ -31,7 +31,7 @@ namespace AirlineReservation {
 		bool operator== (const Reservation& other) const;
 
 	private:
-		int mID;
+		int mReservedID;
 		Flight mReservedFlight;
 		Passenger mReservedPassenger;
 		string mReservedSeatNumber;
