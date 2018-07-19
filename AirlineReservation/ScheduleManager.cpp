@@ -95,10 +95,15 @@ namespace AirlineReservation {
 	Reservation ScheduleManager::reserveFlight()
 	{
 		int selectedFlightID;
-		
+		system("CLS");	
+		cout << flush;
+		cout << "_____________________________________________________________________" << endl << endl;
+		cout << "                       K A L'S    A I R L I N E         " << endl;
+		cout << "_____________________________________________________________________" << endl << endl;
+		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;
 		//lets see all flights avaliable
 		displayAllFlights();
-
+	//	cout << "Reserving Flight" << endl;
 		//select a flight
 		cout << "Make selection by FlightNumber: ";
 		cin >> selectedFlightID;
@@ -249,16 +254,28 @@ namespace AirlineReservation {
 
 	//Dsiplay all Flight Information
 	void ScheduleManager::displayAllFlights() const {
+		////line();
+		//cout << setw(49) << "DISPALY FLIGHTS INFORMATION \n";
+		////line();
+		//cout << setw(8) << "FlightId" << setw(15) << "Date" << setw(15) << "Depart Time"
+		//	<< setw(15) << "ArrivalTime" << setw(15) << "DepartGate" << setw(15) << "Arrival Gate" << setw(15) << "Dapart_Airport" << setw(20) << "Arrival Airport\n";
+		////line();
+		//for (const auto& flight : mAllFlights) {
+		//	flight.displayFlight();
+		//}
+		////readFlightVectorFromFile();
+
 		//line();
-		cout << setw(49) << "DISPALY FLIGHTS INFORMATION \n";
-		//line();
-		cout << setw(8) << "FlightId" << setw(15) << "Date" << setw(15) << "Depart Time"
-			<< setw(15) << "ArrivalTime" << setw(15) << "DepartGate" << setw(15) << "Arrival Gate" << setw(15) << "Dapart_Airport" << setw(20) << "Arrival Airport\n";
-		//line();
+		cout << endl << endl;
+		cout << "F L I G H T S        " << endl;
+		cout << "___________________________________________________________________________________________________________________" << endl << endl;
+		cout << setw(8) << "NUMBER" << setw(10) << "DATE" << setw(20) << "DEPART TIME"
+			<< setw(15) << "ARRIVAL TIME" << setw(12) << "DEPARTURE" << setw(10) << "ARRIVAL" << setw(20) << "DEPART AIRPORT" << setw(22) << "ARRIVAL AIRPORT\n";
+		cout << "___________________________________________________________________________________________________________________" << endl << endl;
 		for (const auto& flight : mAllFlights) {
 			flight.displayFlight();
 		}
-		//readFlightVectorFromFile();
+		cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
 	}
 
 	void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
