@@ -1,6 +1,7 @@
 #pragma once
 # include<string>
 #include<ctime>
+using namespace std;
 namespace AirlineReservation {
 	//enum airportsEnum { SEA, HYD, DEL, DWT, KOL, LA };
 	enum flightstatusEnum { Delayed, Boarding, Ontime, Deparated };
@@ -45,6 +46,7 @@ namespace AirlineReservation {
 		const std::string&  getAirrvalAirpot() const;
 		void setFlightStatus(const flightstatusEnum flightStatus);
 		const flightstatusEnum  getFlightStatus();
+		
 
 
 	private:

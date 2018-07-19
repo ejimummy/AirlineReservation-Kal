@@ -179,7 +179,6 @@ namespace AirlineReservation {
 		return r;
 	}
 
-
 	void ScheduleManager::addFlightInformation() {
 		string tempDate, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;
 		cout << "Enter Flight Number" << endl;
@@ -252,32 +251,18 @@ namespace AirlineReservation {
 		mAllFlights.push_back(theFlight);
 	}
 
-	//Dsiplay all Flight Information
-	void ScheduleManager::displayAllFlights() const {
-		////line();
-		//cout << setw(49) << "DISPALY FLIGHTS INFORMATION \n";
-		////line();
-		//cout << setw(8) << "FlightId" << setw(15) << "Date" << setw(15) << "Depart Time"
-		//	<< setw(15) << "ArrivalTime" << setw(15) << "DepartGate" << setw(15) << "Arrival Gate" << setw(15) << "Dapart_Airport" << setw(20) << "Arrival Airport\n";
-		////line();
-		//for (const auto& flight : mAllFlights) {
-		//	flight.displayFlight();
-		//}
-		////readFlightVectorFromFile();
+	//Display all Flight Information
 
-		//line();
-		cout << endl << endl;
-		cout << "F L I G H T S        " << endl;
-		cout << "___________________________________________________________________________________________________________________" << endl << endl;
-		cout << setw(8) << "NUMBER" << setw(10) << "DATE" << setw(20) << "DEPART TIME"
-			<< setw(15) << "ARRIVAL TIME" << setw(12) << "DEPARTURE" << setw(10) << "ARRIVAL" << setw(20) << "DEPART AIRPORT" << setw(22) << "ARRIVAL AIRPORT\n";
-		cout << "___________________________________________________________________________________________________________________" << endl << endl;
+	
+
+	void ScheduleManager::displayAllFlights() const {
 		for (const auto& flight : mAllFlights) {
 			flight.displayFlight();
 		}
 		cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
 	}
 
+	
 	void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
 		fstream myfile;
 		myfile.open("Flight.txt", ios::out);
@@ -286,6 +271,7 @@ namespace AirlineReservation {
 		myfile.seekg(0);
 		myfile.close();
 	}
+
 	void ScheduleManager::readFlightVectorFromFile() const {
 		vector<Flight> allFlights;
 		fstream myfile;
@@ -336,6 +322,16 @@ namespace AirlineReservation {
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
+	}
+
+	void ScheduleManager::uploadAirportsFromSource(){
+		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
+		mAllFlights.push_back(theFlight);*/
+		
+	}
+
+	std::vector<Flight>  ScheduleManager::getAllFlights()  {
+		return mAllFlights;
 	}
 
 }
