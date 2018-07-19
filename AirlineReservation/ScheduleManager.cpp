@@ -95,17 +95,17 @@ namespace AirlineReservation {
 	Reservation ScheduleManager::reserveFlight()
 	{
 		int selectedFlightID;
-		system("CLS");	
+		/*system("CLS");	
 		cout << flush;
 		cout << "_____________________________________________________________________" << endl << endl;
 		cout << "                       K A L'S    A I R L I N E         " << endl;
 		cout << "_____________________________________________________________________" << endl << endl;
-		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;
+		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;*/
 		//lets see all flights avaliable
-		displayAllFlights();
+		//displayAllFlights();
 	//	cout << "Reserving Flight" << endl;
 		//select a flight
-		cout << "Make selection by FlightNumber: ";
+		cout << "Make selection by Flight Number: ";
 		cin >> selectedFlightID;
 		
 		//search for flight object of selected flight id, error not sure why
