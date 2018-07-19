@@ -185,6 +185,8 @@ static int numberOfDays(int monthNumber, int year)
 	// December
 	if (monthNumber == 11)
 		return (31);
+
+	return 0;
 }
 
 // Function to print the calendar of the given year

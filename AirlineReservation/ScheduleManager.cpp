@@ -327,7 +327,14 @@ namespace AirlineReservation {
 	void ScheduleManager::uploadAirportsFromSource(){
 		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
 		mAllFlights.push_back(theFlight);*/
-		
+
+		cout << "SEA  Seattle Tacoma Intl";
+		cout << "LA Los Angeles Intl";
+		cout << "NY   New York La Guardia";
+		cout << "NYJ  New York JFK";
+		cout << "KOA  Kona Hawaii";
+		cout << "PHL Philadelphia";
+	
 	}
 
 	std::vector<Flight>  ScheduleManager::getAllFlights()  {
