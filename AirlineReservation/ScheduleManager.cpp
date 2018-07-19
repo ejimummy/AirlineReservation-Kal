@@ -14,6 +14,7 @@
 
 using std::string;
 using namespace std;
+
 namespace AirlineReservation {
 	//variable declarations
 	unsigned int pid = -1;
@@ -25,7 +26,7 @@ namespace AirlineReservation {
 	string pemailaddress;
 	Passenger p;
 	Flight f;
-	
+	//testing
 	void ScheduleManager::displayTicket(const Ticket& ticket)
 	{
 		//displays a ticket when the ticket is known
