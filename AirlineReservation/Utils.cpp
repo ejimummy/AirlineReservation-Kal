@@ -31,6 +31,8 @@ using namespace std;
 	return true;
 }
 
+
+
  string Utils::toUpper(string s) {
 	 std::transform(s.begin(), s.end(), s.begin(), std::ptr_fun<int, int>(std::toupper));
 	 return s;
