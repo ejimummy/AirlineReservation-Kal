@@ -40,6 +40,7 @@ namespace AirlineReservation {
 		if (it != ALLTickets.end())
 		{
 			displayTicket(it->second);
+			displayTicket(it->second);
 		}
 
 		else {
