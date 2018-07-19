@@ -296,7 +296,7 @@ namespace AirlineReservation {
 		if (results.size() > 0)
 			return results;
 
-		throw logic_error("No flight found.");
+		throw logic_error("There are NO Flights available");
 	
 	}
 
