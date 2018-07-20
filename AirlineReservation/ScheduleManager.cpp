@@ -28,14 +28,16 @@ namespace AirlineReservation {
 	
 	void ScheduleManager::displayTicket(const Ticket& ticket)
 	{
+		cout << endl;
+		cout << "Here's your ticket:" << endl;
+		cout << "_____________________________________________________________________" << endl;
 		cout << setw(8) << "FLIGHT" << setw(10) << "DATE" << setw(15) << "DEPART TIME"
 			<< setw(20)  << "DEPARTURE AIRPORT\n";
-		cout << "________________________________________________________________________________" << endl << endl;
+		cout << "_____________________________________________________________________" << endl << endl;
 		cout << setw(8) << ticket.getFlightNumber() << setw(10) << ticket.getFlightDate() << setw(15) << ticket.getDepartureTime() << setw(20) 
 			<< ticket.getDeportAirport() << endl;
-		cout << "________________________________________________________________________________" << endl << endl;
-		cout << endl;
-		cout << "Name: " << ticket.getPassengerName() << "          Seat: " << ticket.getSeatNumber() << endl << endl;
+		cout << "_____________________________________________________________________" << endl << endl;
+		cout << "        Name: " << ticket.getPassengerName() << "          Seat: " << ticket.getSeatNumber() << endl << endl;
 		
 	}
 
@@ -46,7 +48,6 @@ namespace AirlineReservation {
 
 		if (it != ALLTickets.end())
 		{
-			displayTicket(it->second);
 			displayTicket(it->second);
 		}
 
@@ -89,6 +90,8 @@ namespace AirlineReservation {
 			
 			//add the ticket to the map
 			ALLTickets.insert(std::make_pair(reservationId, *it));
+
+			cout << endl << "You have been successfully checked in." << endl;
 
 			//display ticket for the user
 			displayTicket(*it);
