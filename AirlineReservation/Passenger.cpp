@@ -20,6 +20,7 @@ Passenger::Passenger(const int id, const string firstName, const string lastName
 	mEmailAddress = emailAddress;
 }
 
+
 void Passenger::display() const
 {
 	cout << mFirstName << " " << mLastName << " " << mAddress << ", " << mCity << ", " << mState;
@@ -114,4 +115,9 @@ void Passenger::setEmailAddress(const string & emailAddress)
 const string & Passenger::getEmailAddress() const
 {
 	return mEmailAddress;
+}
+
+//defining equality so finidng by email works in a collection
+bool Passenger::operator==(const Passenger& other) const {
+	return this->mEmailAddress == other.mEmailAddress;
 }

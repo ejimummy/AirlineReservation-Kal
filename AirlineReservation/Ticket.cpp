@@ -81,9 +81,16 @@ namespace AirlineReservation {
 		return mReservedFlight.getDate();
 	}
 
-	/*string Ticket::getFlightNumber() const {
+	string Ticket::getFlightNumber() const {
 		return mReservedFlight.getFlightNumber();
-	}*/
+	}
 
+	string Ticket::getDeportAirport() const {
+		return mReservedFlight.getDepartureAirport();
+	}
+
+	string Ticket::getDepartureTime() const {
+		return mReservedFlight.getDepartureTime();
+	}
 }
 	

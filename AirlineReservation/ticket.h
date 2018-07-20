@@ -50,6 +50,10 @@ namespace AirlineReservation {
 
 		string getFlightNumber() const;
 
+		string getDeportAirport() const;
+
+		string getDepartureTime() const;
+
 	
 
 		//methods

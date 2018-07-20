@@ -40,6 +40,8 @@ public:
 	void setEmailAddress(const string& emailAddress);
 	const string& getEmailAddress() const;
 
+	bool operator==(const Passenger& other) const;
+
 	
 
 private:
