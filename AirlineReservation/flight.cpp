@@ -5,10 +5,9 @@
 
 using namespace std;
 namespace AirlineReservation {
-	Flight::Flight(const int id, const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string origin,
-		const std::string destination, const std::string departureAirport, const std::string airrvalAirport)
+	Flight::Flight( const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string origin,
+		const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplaneName, const std::string flightNumber)
 	{
-		mflightId = id;
 		mdate = date;
 		mdepartureTime = departureTime;
 		marrivalTime = arrivalTime;
@@ -16,6 +15,8 @@ namespace AirlineReservation {
 		mdestination = destination;
 		mdepartureAirport = departureAirport;
 		mairrvalAirport = airrvalAirport;
+		mAirplaneName = airplaneName;
+		mFlightNumber = flightNumber;
 	}
 
 	

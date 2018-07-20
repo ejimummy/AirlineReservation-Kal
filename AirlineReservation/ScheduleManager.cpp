@@ -47,6 +47,7 @@ namespace AirlineReservation {
 		if (it != ALLTickets.end())
 		{
 			displayTicket(it->second);
+			displayTicket(it->second);
 		}
 
 		else {
@@ -152,17 +153,17 @@ namespace AirlineReservation {
 	Reservation ScheduleManager::reserveFlight()
 	{
 		int selectedFlightID;
-		system("CLS");	
+		/*system("CLS");	
 		cout << flush;
 		cout << "_____________________________________________________________________" << endl << endl;
 		cout << "                       K A L'S    A I R L I N E         " << endl;
 		cout << "_____________________________________________________________________" << endl << endl;
-		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;
+		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;*/
 		//lets see all flights avaliable
-		displayAllFlights();
+		//displayAllFlights();
 	//	cout << "Reserving Flight" << endl;
 		//select a flight
-		cout << "Make selection by FlightNumber: ";
+		cout << "Make selection by Flight Number: ";
 		cin >> selectedFlightID;
 		
 		//search for flight object of selected flight id, error not sure why
@@ -237,18 +238,20 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::addFlightInformation() {
-		string tempDate, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;
+		string tempDate,airplaneName, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;
 		cout << "Enter Flight Number" << endl;
 		cin >> flightNumber;
+		cout << "Enter Airplane Name" << endl;
+		cin >> airplaneName;
 		cout << "Enter Origin " << endl;
 		cin >> origin;
 		cout << "Enter Destination " << endl;
 		cin >> destination;
-		cout << "Enter Date(MM/DD/YYYY)" << endl;
+		cout << "Enter Date(MM/DD/YY)" << endl;
 		cin >> tempDate;
-		cout << "Enter Departure Time(HH:MM AM/PM)" << endl;
+		cout << "Enter Departure Time(HH:MMAM/PM)" << endl;
 		cin >> departureTime;
-		cout << "Enter Arrival Time(HH:MM AM/PM)" << endl;
+		cout << "Enter Arrival Time(HH:MMAM/PM)" << endl;
 		cin >> arrivalTime;
 		cout << "Enter Departure airport " << endl;
 		cin >> departureAirport;
@@ -261,6 +264,7 @@ namespace AirlineReservation {
 		//theFlight.setAirrvalAirport(airportsEnum :: SEA);
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.setFlightNumber(flightNumber);
+		theFlight.setAirplaneName(airplaneName);
 		theFlight.setDate(tempDate);
 		theFlight.setdepartureAirport(departureAirport);
 		theFlight.setAirrvalAirport(arrivalAirport);
@@ -301,13 +305,13 @@ namespace AirlineReservation {
 
 	}
 
-	void ScheduleManager::dummyFlightInformation() {
-		Flight theFlight(1, "10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
+	/*void ScheduleManager::dummyFlightInformation() {
+		Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 	}
-
+*/
 	//Display all Flight Information
 
 	
@@ -358,24 +362,24 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight(1, "08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");	
+		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1(1, "08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl");
+		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2(1, "08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3(1, "08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl");
+		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
@@ -384,7 +388,14 @@ namespace AirlineReservation {
 	void ScheduleManager::uploadAirportsFromSource(){
 		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
 		mAllFlights.push_back(theFlight);*/
-		
+
+		cout << "SEA  Seattle Tacoma Intl";
+		cout << "LA Los Angeles Intl";
+		cout << "NY   New York La Guardia";
+		cout << "NYJ  New York JFK";
+		cout << "KOA  Kona Hawaii";
+		cout << "PHL Philadelphia";
+	
 	}
 
 	std::vector<Flight>  ScheduleManager::getAllFlights()  {
