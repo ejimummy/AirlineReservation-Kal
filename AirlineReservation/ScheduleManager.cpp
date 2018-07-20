@@ -314,15 +314,23 @@ namespace AirlineReservation {
 */
 	//Display all Flight Information
 
-	
+	void displayHeadersForTableFlights(string tableHeader) {
 
+		
+	}
+	//Table Header
 	void ScheduleManager::displayAllFlights() const {
+	
+		cout << "___________________________________________________________________________________________________________________" << endl << endl;
+		cout << setw(9) << "ID" << setw(8) << "DATE" << setw(17) << "DEPART TIME"
+			<< setw(15) << "ARRIVAL TIME" << setw(13) << "DEPARTURE" << setw(10) << "ARRIVAL" << setw(20) << "DEPART AIRPORT" << setw(22) << "ARRIVAL AIRPORT\n";
+		cout << "___________________________________________________________________________________________________________________" << endl << endl;
+
 		for (const auto& flight : mAllFlights) {
 			flight.displayFlight();
 		}
 		cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
 	}
-
 	
 	void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
 		fstream myfile;
