@@ -393,18 +393,41 @@ namespace AirlineReservation {
 		mAllFlights.push_back(theFlight3);
 	}
 
+	void ScheduleManager::uploadAirportsFromSource() {
+		airports.insert(std::pair<std::string, string>("JFK", "New York Jonh F Kennedy"));
+		airports.insert(std::pair<std::string, string>("LGA", "New York La Guardia"));
+		airports.insert(std::pair<std::string, string>("HNL", "Hawaii Inouye Intl"));
+		airports.insert(std::pair<std::string, string>("LAX", "Los Angeles Intl"));	
+		airports.insert(std::pair<std::string, string>("SEA", "Tacoma Intl"));
+	}
+
 	void ScheduleManager::displayAllAirports() {
 		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
 		mAllFlights.push_back(theFlight);*/
-		cout << "    SEA Seattle Tacoma Intl" <<endl;
+	/*	cout << "    SEA Seattle Tacoma Intl" <<endl;
 		cout << "    LAX Los Angeles Intl" << endl;
 		cout << "    LGA New York La Guardia" << endl;
 		cout << "    JFK New York JFK" << endl;
 		cout << "    HNL Hawaii Inouye Intl." << endl;
 		cout << "    ITO Hawaii Hilo Intl." << endl;
 		cout << "    ORD Chicago O'Hare Intl." << endl;
-		cout << "    LAS MacCarran Intl." << endl;
+		cout << "    LAS MacCarran Intl." << endl;*/
+	
+		cout << setw(8) << "CODE" << setw(18) << "AIRPORT"<<endl;
+		for (const auto& a : airports)
+		{
+			std::cout <<setw(8) << a.first << setw(25) << a.second << endl;
+
+		}
+		/*std::map<std::string, string>::iterator it = airports.find("SEA");
+		if (it != airports.end())
+			printf("The number is %d\n", (*it).second);
+		else
+			printf("Error, the number is not found\n");*/
+
 	}
+
+
 
 	std::vector<Flight>  ScheduleManager::getAllFlights()  {
 		return mAllFlights;

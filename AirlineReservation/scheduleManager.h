@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <map>
 #include "Reservation.h"
 #include "ticket.h"
 using std::string;
@@ -13,7 +14,7 @@ namespace AirlineReservation {
 		std::vector<Flight> mAllFlights;
 		vector<Passenger> mAllPassengers;
 		vector<Reservation> mAllReservations;
-		vector<string> airports;
+		std::unordered_map<std::string, string> airports;
 		
 	public:
 		ScheduleManager() = default;
@@ -34,6 +35,7 @@ namespace AirlineReservation {
 		void dummyFlightInformation();
 		vector<Flight> searchFlights(const string& date, const string& from, const string& to) ;
 		void uploadFlightsFromSource() ;
+		void uploadAirportsFromSource();
 		 std::vector<Flight> getAllFlights() ;
 
 		//File - Read and Write Functions
