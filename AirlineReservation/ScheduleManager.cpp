@@ -370,40 +370,40 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
+		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
+		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
+		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
+		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
 	}
 
-	void ScheduleManager::uploadAirportsFromSource(){
+	void ScheduleManager::displayAllAirports() {
 		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
 		mAllFlights.push_back(theFlight);*/
-
-		cout << "SEA  Seattle Tacoma Intl";
-		cout << "LA Los Angeles Intl";
-		cout << "NY   New York La Guardia";
-		cout << "NYJ  New York JFK";
-		cout << "KOA  Kona Hawaii";
-		cout << "PHL Philadelphia";
-	
+		cout << "    SEA Seattle Tacoma Intl" <<endl;
+		cout << "    LAX Los Angeles Intl" << endl;
+		cout << "    LGA New York La Guardia" << endl;
+		cout << "    JFK New York JFK" << endl;
+		cout << "    HNL Hawaii Inouye Intl." << endl;
+		cout << "    ITO Hawaii Hilo Intl." << endl;
+		cout << "    ORD Chicago O'Hare Intl." << endl;
+		cout << "    LAS MacCarran Intl." << endl;
 	}
 
 	std::vector<Flight>  ScheduleManager::getAllFlights()  {

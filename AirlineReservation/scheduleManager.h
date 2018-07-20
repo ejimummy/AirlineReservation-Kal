@@ -28,7 +28,7 @@ namespace AirlineReservation {
 		//Flight:
 		//Display All Flights Information
 		void displayAllFlights() const;
-	
+		void displayAllAirports();
 		void addFlightInformation();
 		void deleteFlight(int flightId);
 		void dummyFlightInformation();
@@ -39,7 +39,7 @@ namespace AirlineReservation {
 		//File - Read and Write Functions
 		void writeFlightVectorToFile(std::vector<Flight> allFlights);
 		void readFlightVectorFromFile() const;
-		void uploadAirportsFromSource();
+		
 		
 		
 	};
