@@ -48,28 +48,39 @@ namespace AirlineReservation {
 		}
 
 	}
-
+	
 	int Plane::bookSeat(std::string& seat)
 	{
+		
 		for (int i = 0; i < mPlaneSeats.size(); i++) {
+
 			if ((mPlaneSeats[i].seatNo).compare(seat) == 0) {
+
+				//means that seat exist ,whether it is avaliable or not
+				
+				//if seat is available
 				if (mPlaneSeats[i].isAvailable == true) {
-					cout << "The seat has been reserved" << endl;
+					cout << "The seat has been reserved for you" << endl<<endl;
 					mPlaneSeats[i].isAvailable = false;
 					mAvailableSeats--;
 					return i;
 				}
 				else {
-					cout << "choose another one" << endl;
-					return 0;
+					cout << "this seat is not available." << endl;
+					cout << endl;
+					return -1;
 				}
 			}
-			else {
-				cout << "Incorrect seat number" << endl;
-				return 0;
-			}
 		}
+				
+		//if it get here seat does not exist
+		cout << "Incorrect seat number." << endl;
+		cout << endl;
+		return -1;
+			
 	}
+
+	
 
 	void Plane::setEconomySeats(int noOfSeats)
 	{

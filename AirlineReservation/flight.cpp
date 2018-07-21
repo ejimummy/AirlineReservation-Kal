@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "flight.h"
+#include "Plane.h"
 #include<iostream>
 #include<iomanip>
 
@@ -7,6 +8,7 @@ using namespace std;
 namespace AirlineReservation {
 	Flight::Flight( const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string origin,
 		const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplaneName, const std::string flightNumber)
+		:mairplane(airplaneName,6,2)
 	{
 		mdate = date;
 		mdepartureTime = departureTime;
@@ -17,6 +19,8 @@ namespace AirlineReservation {
 		mairrvalAirport = airrvalAirport;
 		mAirplaneName = airplaneName;
 		mFlightNumber = flightNumber;
+		
+	
 	}
 
 	
@@ -143,6 +147,13 @@ namespace AirlineReservation {
 	{
 		return mflightStatus;
 	}
+
+	 Plane& Flight::getAirPlane()
+	{
+		return mairplane;
+	}
+
+	
 
 	
 

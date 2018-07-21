@@ -19,7 +19,7 @@ namespace AirlineReservation {
 		Plane(const std::string& name, int economySeats, int eCols);
 		bool checkAvailabilityOfSeats();
 		int bookSeat(std::string& seat);
-
+		
 		void setPlaneId(int flightNo);
 		int getPlaneId() const;
 

@@ -26,6 +26,7 @@ namespace AirlineReservation {
 	string pemailaddress;
 	Passenger p;
 	Flight f;
+	string seatnumber;
 	//testing
 	void ScheduleManager::displayTicket(const Ticket& ticket)
 	{
@@ -33,13 +34,13 @@ namespace AirlineReservation {
 		cout << "Here's your ticket:" << endl;
 		cout << "_____________________________________________________________________" << endl;
 		cout << setw(8) << "FLIGHT" << setw(10) << "DATE" << setw(15) << "DEPART TIME"
-			<< setw(20)  << "DEPARTURE AIRPORT\n";
+			<< setw(20) << "DEPARTURE AIRPORT\n";
 		cout << "_____________________________________________________________________" << endl << endl;
-		cout << setw(8) << ticket.getFlightNumber() << setw(10) << ticket.getFlightDate() << setw(15) << ticket.getDepartureTime() << setw(20) 
+		cout << setw(8) << ticket.getFlightNumber() << setw(10) << ticket.getFlightDate() << setw(15) << ticket.getDepartureTime() << setw(20)
 			<< ticket.getDeportAirport() << endl;
 		cout << "_____________________________________________________________________" << endl << endl;
 		cout << "        Name: " << ticket.getPassengerName() << "          Seat: " << ticket.getSeatNumber() << endl << endl;
-		
+
 	}
 
 	void ScheduleManager::displayTicket(int reservationId)
@@ -54,19 +55,21 @@ namespace AirlineReservation {
 
 		else {
 			cout << "Invalid reservation number. Please check your records and verify you have already checked-in." << endl << endl;
-			
+
 		}
 
 	}
 
-	void ScheduleManager::cancelReservationId(int reservationId)
+	void ScheduleManager::searchReservation(int reservationId)
+	
 	{
 		bool foundreservation = false;
 		for (unsigned int i = 0; i < mAllReservations.size(); i++) {
 			if (mAllReservations[i].getReservedID() == reservationId) {
 
 				//display flight chosen by user
-				cout << "You chose to cancel reservation: " << endl;
+				cout << "Here is your reservation " << endl;
+				cout<<"_______________________________"<<endl;
 				mAllReservations[i].display();
 				Reservation cancelreservation = mAllReservations[i];
 				foundreservation = true;
@@ -74,13 +77,13 @@ namespace AirlineReservation {
 			}
 		}
 		if (foundreservation == false) {
-			cout << "there is nothing to cancel" << endl;
+			cout << "reservation does not exist" << endl;
 		}
 	}
 
 	void ScheduleManager::passengerCheckin(int reservationId)
 	{
-		
+
 
 		Reservation target;
 		target.setReservedID(reservationId);
@@ -88,7 +91,7 @@ namespace AirlineReservation {
 		auto it = std::find(mAllReservations.begin(), mAllReservations.end(), target);
 		if (it != mAllReservations.end())
 		{
-			
+
 			//add the ticket to the map
 			ALLTickets.insert(std::make_pair(reservationId, *it));
 
@@ -141,42 +144,34 @@ namespace AirlineReservation {
 				cout << "          Phone: " << mAllPassengers[count].getPhoneNumber() << endl;
 				cout << "          Email: " << mAllPassengers[count].getEmailAddress() << endl << endl;
 				passengerFound = true;
-				
+
 
 			}
-			count++;	
+			count++;
 		}
 
 		if (!passengerFound) {
 			cout << "Invalid email address." << endl;
 		}
-			
-	*/	
+
+	*/
 	}
 
-	Reservation ScheduleManager::reserveFlight()
+	void ScheduleManager::reserveFlight()
 	{
 		int selectedFlightID;
-		/*system("CLS");	
-		cout << flush;
-		cout << "_____________________________________________________________________" << endl << endl;
-		cout << "                       K A L'S    A I R L I N E         " << endl;
-		cout << "_____________________________________________________________________" << endl << endl;
-		cout << "    R E S E R V E   A   F L I G H T         " << endl << endl << endl;*/
-		//lets see all flights avaliable
-		//displayAllFlights();
-	//	cout << "Reserving Flight" << endl;
+
 		//select a flight
 		cout << "Make selection by Flight Number: ";
 		cin >> selectedFlightID;
-		
-		//search for flight object of selected flight id, error not sure why
+
+		//search for flight object of selected flight id
 		bool foundflight = false;
 		for (unsigned int i = 0; i < mAllFlights.size(); i++) {
 			if (mAllFlights[i].getFlightId() == selectedFlightID) {
 
 				//display flight chosen by user
-				cout << "You chose Flight: "<<endl;
+				cout << "You chose Flight: " << endl;
 				mAllFlights[i].displayFlight();
 				f = mAllFlights[i];
 				foundflight = true;
@@ -186,66 +181,130 @@ namespace AirlineReservation {
 
 		//flight was not found, user need to go back and pick correct flight 
 		//still trying to write properly
-		/*if (foundflight ==false) {
+		if (foundflight == false) {
 			cout << "This flight id doesn't exist!" << endl;
 			cout << "Please enter the correct FlightId" << endl;
 			return;
+
+
+		}
+		cout << "Display available seats" << endl;
+		cout << "___________________________" << endl;
+		
+		//if there are no seats in flight
+		if(f.getAirPlane().checkAvailabilityOfSeats() == false){
+
+			cout << "There are no seats avaliable.Chose another flight" << endl;
+			return;
+
+		}
+		for (unsigned int i = 0; i < f.getAirPlane().GetSeatsVector().size(); i++) {
+
+			//if seat is available display
 			
-		} */
+			if (f.getAirPlane().GetSeatsVector()[i].isAvailable == true) {
+				
+				cout << f.getAirPlane().GetSeatsVector()[i].seatNo << " ";
+			}
+		}
+		cout << endl;
 
-	
-			//pick seat -need functions from Chtira
-		/***
-		std::string& pname = f.getAirplaneName();
-		Plane plane = GetPlaneByName(pname);
-		plane.GetSeatsVector();***/
+		cout << " Pick an available seat: " << endl;
+		cin >> seatnumber;
+		
+		int rsuccess = f.getAirPlane().bookSeat(seatnumber);
 
 
-	
-			//will give it a dummy seat for now
-			string seatnumber = "1A";
-
-			//get user details to create passenger;
-			cout << "Let us get your personal details" << endl;								
-			cout << "Enter First Name: " << endl;
-			cin >> pfname;
-			cout << "Enter Last Name: " << endl;
-			cin >> plname;
-			cout << "Enter Address: " << endl;
-			getline(cin.ignore(), paddress);
-			cout << "Enter City: " << endl;
-			cin >> pcity;
-			cout << " Enter State: " << endl;
-			cin >> pstate;
-			cout << "Enter Zipcode: " << endl;
-			cin >> pzipcode;
-			cout << "Enter Phone Number: " << endl;
-			cin >> pphonenumber;
-			cout << "Enter Email Address: " << endl;
-			cin >> pemailaddress;
-
-			//call retrieveAllPassengers and get the last passenger ID used 
-			pid = mAllPassengers.size() + 1;
-
-			//add user input into Passenger object
-			p.setID(pid); p.setFirstName(pfname); p.setLastName(plname); p.setAddress(paddress);
-			p.setCity(pcity); p.setState(pstate); p.setZipCode(pzipcode); p.setPhoneNumber(pphonenumber);
-			p.setEmailAddress(pemailaddress);
-
-			//write new passenger into AllPassengers vector 
-			mAllPassengers.push_back(p);
-
-			//call retrieveAllReservations and get the last reservation ID used 
-
-			auto rid = mAllReservations.size() + 1;
-
-			//create reservation
-			Reservation r = Reservation(rid, f, p, seatnumber);
-			//add to all reservations
-			mAllReservations.push_back(r);
+		//if a seat is not available or does not exist
+		if (rsuccess == -1) {
+			//let user try 2 more times before returning to main menu
+			bool success = false;
+			int tries = 0;
+			while (success == false && tries < 2) {
+				cout << "Try again, Pick an available seat: " << endl;
+				//seatnumber = "";
+				cin >> seatnumber;
+				
+				int tryagain = f.getAirPlane().bookSeat(seatnumber);
+				
+				if (tryagain == -1) {
+					tries++;
+				}
+				else {
+					success = true;
+				}
+			}
+			if (success == false) {
+				cout << "You have exhausted all your tries" << endl << endl;
+				return;
+			}
 			
-		return r;
+		}
+
+		//get user details to create passenger;
+		cout << "Let us get your personal details" << endl;
+		cout << "Enter First Name: " << endl;
+		cin >> pfname;
+		cout << "Enter Last Name: " << endl;
+		cin >> plname;
+		cout << "Enter Address: " << endl;
+		getline(cin.ignore(), paddress);
+		cout << "Enter City: " << endl;
+		cin >> pcity;
+		cout << "Enter State: " << endl;
+		cin >> pstate;
+		cout << "Enter Zipcode: " << endl;
+		cin >> pzipcode;
+		cout << "Enter Phone Number: XXX-XX-XXXX" << endl;
+		cin >> pphonenumber;
+		cout << "Enter Email Address, for example test@test.com: " << endl;
+		cin >> pemailaddress;
+
+		//call retrieveAllPassengers and get the last passenger ID used 
+		pid = mAllPassengers.size() + 1;
+
+		//add user input into Passenger object
+		p.setID(pid); p.setFirstName(pfname); p.setLastName(plname); p.setAddress(paddress);
+		p.setCity(pcity); p.setState(pstate); p.setZipCode(pzipcode); p.setPhoneNumber(pphonenumber);
+		p.setEmailAddress(pemailaddress);
+
+		//write new passenger into AllPassengers vector 
+		mAllPassengers.push_back(p);
+
+
+		//write updated reserved seat back to flight in AllFlights vector
+		//since we are not using pointers we have to do this
+
+		for (unsigned int i = 0; i < mAllFlights.size(); i++) {
+			if (mAllFlights[i].getFlightId() == f.getFlightId()) {
+				
+				for (unsigned int j = 0; j < mAllFlights[i].getAirPlane().GetSeatsVector().size(); j++) {
+
+					
+					if (mAllFlights[i].getAirPlane().GetSeatsVector()[j].seatNo == seatnumber) {
+						//cout << " in mflight" << mAllFlights[i].getAirPlane().GetSeatsVector()[j].seatNo << endl;
+						//mAllFlights[i].getAirPlane().GetSeatsVector()[j].isAvailable = false;
+						mAllFlights[i].getAirPlane().bookSeat(seatnumber);
+					}
+				}
+				
+			}
+		}
+
+		//call retrieveAllReservations and get the last reservation ID used 
+
+		auto rid = mAllReservations.size() + 1;
+
+		//create reservation
+		Reservation r = Reservation(rid, f, p, seatnumber);
+		//add to all reservations
+		mAllReservations.push_back(r);
+
+		//display reservation
+		r.display();
 	}
+
+
 
 	void ScheduleManager::addFlightInformation() {
 		string tempDate,airplaneName, departureAirport, arrivalAirport, arrivalTime, departureTime, origin, destination, flightNumber;

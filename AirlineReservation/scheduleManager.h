@@ -21,10 +21,10 @@ namespace AirlineReservation {
 		
 	public:
 		ScheduleManager() = default;
-		 Reservation reserveFlight();
+		 void reserveFlight();
 		void displayTicket(const Ticket& ticket);
 		void displayTicket(int reservationId);
-		void cancelReservationId(int reservationId);
+		void searchReservation(int reservationId);
 		void passengerCheckin(int reservationId);
 		void findPassengerInformation(string passengerEmail) const;
 		void passengerDisplay(const Passenger& foundPassenger) const;
