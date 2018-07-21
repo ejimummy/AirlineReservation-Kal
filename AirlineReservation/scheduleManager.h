@@ -46,7 +46,7 @@ namespace AirlineReservation {
 		//Plane functions
 		void AddPlane();
 		Plane & GetPlaneByName(const std::string& pName);
-		//void DisplayAllSeats(const std::string& pName);
+		void DisplayAllSeats(Flight f);
 		
 		
 	};

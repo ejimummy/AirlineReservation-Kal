@@ -132,8 +132,14 @@ namespace AirlineReservation {
 			return;
 			
 		} */
+
 	
 			//pick seat -need functions from Chtira
+		/***
+		std::string& pname = f.getAirplaneName();
+		Plane plane = GetPlaneByName(pname);
+		plane.GetSeatsVector();***/
+
 
 	
 			//will give it a dummy seat for now
@@ -350,17 +356,17 @@ std::vector<Flight>  ScheduleManager::getAllFlights() {
 
 void ScheduleManager::AddPlane()
 {
-	Plane thePlane("BOING666",20,5);
-    thePlane.setPlaneId(mAllPlanes.size() + 1);
-	mAllPlanes.push_back(thePlane);
+	Plane thePlane1("BOING666",20,5);
+    thePlane1.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane1);
 	
-	Plane thePlane("BOING808", 20, 5);
-	thePlane.setPlaneId(mAllPlanes.size() + 1);
-	mAllPlanes.push_back(thePlane);
+	Plane thePlane2("BOING808", 20, 5);
+	thePlane2.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane2);
 
-	Plane thePlane("BOING707", 20, 5);
-	thePlane.setPlaneId(mAllPlanes.size() + 1);
-	mAllPlanes.push_back(thePlane);
+	Plane thePlane3("BOING707", 20, 5);
+	thePlane3.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane3);
 
 }
 
@@ -372,6 +378,16 @@ Plane& ScheduleManager::GetPlaneByName(const std::string& pName)
 		}
 	}
 	throw logic_error("No Plane found.");
+}
+
+void ScheduleManager::DisplayAllSeats(Flight f)
+{
+	std::string& pName = f.getAirplaneName();
+	Plane plane = GetPlaneByName(pName);
+	std::vector<Seat>& seats = plane.GetSeatsVector();
+	for (int i = 0; i < seats.size(); i++) {
+		cout << seats[i].seatNo << endl;
+	}
 }
 
 
