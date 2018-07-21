@@ -133,7 +133,6 @@ namespace AirlineReservation {
 			
 		} */
 	
-
 			//pick seat -need functions from Chtira
 
 	
@@ -141,7 +140,7 @@ namespace AirlineReservation {
 			string seatnumber = "1A";
 
 			//get user details to create passenger;
-			cout << "Let us get your personal details" << endl;
+			cout << "Let us get your personal details" << endl;								
 			cout << "Enter First Name: " << endl;
 			cin >> pfname;
 			cout << "Enter Last Name: " << endl;
@@ -250,102 +249,131 @@ namespace AirlineReservation {
 
 	}
 
-	/*void ScheduleManager::dummyFlightInformation() {
-		Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
-		theFlight.setFlightId(mAllFlights.size() + 1);
-		theFlight.addFlight();
-		mAllFlights.push_back(theFlight);
-	}
+/*void ScheduleManager::dummyFlightInformation() {
+	Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
+	theFlight.setFlightId(mAllFlights.size() + 1);
+	theFlight.addFlight();
+	mAllFlights.push_back(theFlight);
+}
 */
-	//Display all Flight Information
+//Display all Flight Information
 
-	
 
-	void ScheduleManager::displayAllFlights() const {
-		for (const auto& flight : mAllFlights) {
-			flight.displayFlight();
+
+void ScheduleManager::displayAllFlights() const {
+	for (const auto& flight : mAllFlights) {
+		flight.displayFlight();
+	}
+	cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
+}
+
+
+void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
+	fstream myfile;
+	myfile.open("Flight.txt", ios::out);
+	myfile.write((char*)&allFlights, sizeof(allFlights));
+
+	myfile.seekg(0);
+	myfile.close();
+}
+
+void ScheduleManager::readFlightVectorFromFile() const {
+	vector<Flight> allFlights;
+	fstream myfile;
+	myfile.open("Flight.txt", ios::in);
+	myfile.read(reinterpret_cast<char *>(&allFlights), sizeof(mAllFlights));
+	for (unsigned int i = 0; i < allFlights.size(); i++) {
+		allFlights[i].displayFlight();
+	}
+
+}
+
+vector<Flight> ScheduleManager::searchFlights(const string& date, const string& from, const string& to) {
+
+	vector<Flight> results;
+
+	for (Flight& flight : mAllFlights) {
+		if (flight.getDate() == date &&
+			flight.getOrigin() == from && flight.getDestination() == to) {
+			results.push_back(flight);
 		}
-		cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
 	}
+	if (results.size() > 0)
+		return results;
 
-	
-	void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
-		fstream myfile;
-		myfile.open("Flight.txt", ios::out);
-		myfile.write((char*)&allFlights, sizeof(allFlights));
+	throw logic_error("There are NO Flights available");
 
-		myfile.seekg(0);
-		myfile.close();
-	}
+}
 
-	void ScheduleManager::readFlightVectorFromFile() const {
-		vector<Flight> allFlights;
-		fstream myfile;
-		myfile.open("Flight.txt", ios::in);
-		myfile.read(reinterpret_cast<char *>(&allFlights), sizeof(mAllFlights));
-		for (unsigned int i = 0; i < allFlights.size(); i++) {
-			allFlights[i].displayFlight();
+void ScheduleManager::uploadFlightsFromSource() {
+	Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "BO12");
+	theFlight.setFlightId(mAllFlights.size() + 1);
+	theFlight.addFlight();
+	mAllFlights.push_back(theFlight);
+
+	Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
+
+	theFlight1.setFlightId(mAllFlights.size() + 1);
+	theFlight1.addFlight();
+	mAllFlights.push_back(theFlight1);
+
+	Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
+
+	theFlight2.setFlightId(mAllFlights.size() + 1);
+	theFlight2.addFlight();
+	mAllFlights.push_back(theFlight2);
+
+	Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
+	theFlight3.setFlightId(mAllFlights.size() + 1);
+	theFlight3.addFlight();
+	mAllFlights.push_back(theFlight3);
+}
+
+void ScheduleManager::uploadAirportsFromSource() {
+	/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
+	mAllFlights.push_back(theFlight);*/
+
+	cout << "SEA  Seattle Tacoma Intl";
+	cout << "LA Los Angeles Intl";
+	cout << "NY   New York La Guardia";
+	cout << "NYJ  New York JFK";
+	cout << "KOA  Kona Hawaii";
+	cout << "PHL Philadelphia";
+
+}
+
+std::vector<Flight>  ScheduleManager::getAllFlights() {
+	return mAllFlights;
+}
+
+//Plane Information
+
+Plane&  ScheduleManager::AddPlane(const std::string& planeName, int eSeats, int bSeats)
+{
+	Plane thePlane(planeName, eSeats, bSeats);
+	mAllPlanes.push_back(thePlane);
+	thePlane.setPlaneId(mNextPlaneNumber++);
+	return mAllPlanes[mAllPlanes.size() - 1];
+}
+
+Plane& ScheduleManager::GetPlaneByName(const std::string& pName)
+{
+	for (auto& plane : mAllPlanes) {
+		if (plane.getPlaneName() == pName) {
+			return plane;
 		}
-
 	}
+	throw logic_error("No Plane found.");
+}
 
-	vector<Flight> ScheduleManager::searchFlights(const string& date, const string& from, const string& to)  {
-	
-		vector<Flight> results;
 
-		for (Flight& flight : mAllFlights) {
-			if (flight.getDate()==date   &&
-				flight.getOrigin() == from && flight.getDestination() == to) {
-				results.push_back(flight);
-			}
-		}
-		if (results.size() > 0)
-			return results;
 
-		throw logic_error("There are NO Flights available");
-	
-	}
 
-	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
-		theFlight.setFlightId(mAllFlights.size() + 1);
-		theFlight.addFlight();
-		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LA", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
-		
-		theFlight1.setFlightId(mAllFlights.size() + 1);
-		theFlight1.addFlight();
-		mAllFlights.push_back(theFlight1);
+ 
 
-		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
-		
-		theFlight2.setFlightId(mAllFlights.size() + 1);
-		theFlight2.addFlight();
-		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LA", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
-		theFlight3.setFlightId(mAllFlights.size() + 1);
-		theFlight3.addFlight();
-		mAllFlights.push_back(theFlight3);
-	}
 
-	void ScheduleManager::uploadAirportsFromSource(){
-		/*const char airport[][10] = { "SEA", "HYD", "DEL","DWT", "KOL","LA" };
-		mAllFlights.push_back(theFlight);*/
-
-		cout << "SEA  Seattle Tacoma Intl";
-		cout << "LA Los Angeles Intl";
-		cout << "NY   New York La Guardia";
-		cout << "NYJ  New York JFK";
-		cout << "KOA  Kona Hawaii";
-		cout << "PHL Philadelphia";
-	
-	}
-
-	std::vector<Flight>  ScheduleManager::getAllFlights()  {
-		return mAllFlights;
-	}
 
 }
 

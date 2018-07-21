@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include "Reservation.h"
 #include "ticket.h"
+#include "Plane.h"
 using std::string;
 using namespace std;
 
@@ -14,6 +15,8 @@ namespace AirlineReservation {
 		vector<Passenger> mAllPassengers;
 		vector<Reservation> mAllReservations;
 		vector<string> airports;
+		vector<Plane> mAllPlanes;
+		int mNextPlaneNumber = 0;
 		
 	public:
 		ScheduleManager() = default;
@@ -30,7 +33,7 @@ namespace AirlineReservation {
 	
 		void addFlightInformation();
 		void deleteFlight(int flightId);
-		void dummyFlightInformation();
+		//void dummyFlightInformation();
 		vector<Flight> searchFlights(const string& date, const string& from, const string& to) ;
 		void uploadFlightsFromSource() ;
 		 std::vector<Flight> getAllFlights() ;
@@ -39,6 +42,11 @@ namespace AirlineReservation {
 		void writeFlightVectorToFile(std::vector<Flight> allFlights);
 		void readFlightVectorFromFile() const;
 		void uploadAirportsFromSource();
+
+		//Plane functions
+		Plane& AddPlane(const std::string& planeName, int eSeats, int eCols);
+		Plane & GetPlaneByName(const std::string& pName);
+		//void DisplayAllSeats(const std::string& pName);
 		
 		
 	};
