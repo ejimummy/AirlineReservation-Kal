@@ -14,6 +14,7 @@
 
 using std::string;
 using namespace std;
+
 namespace AirlineReservation {
 	//variable declarations
 	unsigned int pid = -1;
@@ -25,7 +26,7 @@ namespace AirlineReservation {
 	string pemailaddress;
 	Passenger p;
 	Flight f;
-	
+	//testing
 	void ScheduleManager::displayTicket(const Ticket& ticket)
 	{
 		cout << endl;
@@ -191,15 +192,21 @@ namespace AirlineReservation {
 			return;
 			
 		} */
-	
 
+	
 			//pick seat -need functions from Chtira
+		/***
+		std::string& pname = f.getAirplaneName();
+		Plane plane = GetPlaneByName(pname);
+		plane.GetSeatsVector();***/
+
+
 	
 			//will give it a dummy seat for now
 			string seatnumber = "1A";
 
 			//get user details to create passenger;
-			cout << "Let us get your personal details" << endl;
+			cout << "Let us get your personal details" << endl;								
 			cout << "Enter First Name: " << endl;
 			cin >> pfname;
 			cout << "Enter Last Name: " << endl;
@@ -308,14 +315,14 @@ namespace AirlineReservation {
 
 	}
 
-	/*void ScheduleManager::dummyFlightInformation() {
-		Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
-		theFlight.setFlightId(mAllFlights.size() + 1);
-		theFlight.addFlight();
-		mAllFlights.push_back(theFlight);
-	}
+/*void ScheduleManager::dummyFlightInformation() {
+	Flight theFlight("10/08/2018", "10:10 AM", "9:00PM", "2A", "2B", "SEA", "LA");
+	theFlight.setFlightId(mAllFlights.size() + 1);
+	theFlight.addFlight();
+	mAllFlights.push_back(theFlight);
+}
 */
-	//Display all Flight Information
+//Display all Flight Information
 
 	void displayHeadersForTableFlights(string tableHeader) {
 
@@ -435,6 +442,54 @@ namespace AirlineReservation {
 	std::vector<Flight>  ScheduleManager::getAllFlights()  {
 		return mAllFlights;
 	}
+
+//Plane Information
+
+void ScheduleManager::AddPlane()
+{
+	Plane thePlane1("BOING666",20,5);
+    thePlane1.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane1);
+	
+	Plane thePlane2("BOING808", 20, 5);
+	thePlane2.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane2);
+
+	Plane thePlane3("BOING707", 20, 5);
+	thePlane3.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane3);
+
+}
+
+Plane& ScheduleManager::GetPlaneByName(const std::string& pName)
+{
+	for (auto& plane : mAllPlanes) {
+		if (plane.getPlaneName() == pName) {
+			return plane;
+		}
+	}
+	throw logic_error("No Plane found.");
+}
+
+void ScheduleManager::DisplayAllSeats(Flight f)
+{
+	std::string& pName = f.getAirplaneName();
+	Plane plane = GetPlaneByName(pName);
+	std::vector<Seat>& seats = plane.GetSeatsVector();
+	for (int i = 0; i < seats.size(); i++) {
+		cout << seats[i].seatNo << endl;
+	}
+}
+
+
+
+
+
+
+ 
+
+
+
 
 }
 
