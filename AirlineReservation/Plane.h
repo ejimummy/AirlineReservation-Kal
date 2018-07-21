@@ -29,6 +29,9 @@ namespace AirlineReservation {
 		void setEconomySeats(int noOfSeats);
 		int getEconomySeats() const;
 
+		void setEconomyCols(int cols);
+		int getEconomyCols() const;
+
 		std::vector<Seat>& GetSeatsVector();
 
 	private:

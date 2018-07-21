@@ -90,7 +90,14 @@ namespace AirlineReservation {
 	{
 		return mEconomySeats;
 	}
-
+	void Plane::setEconomyCols(int cols)
+	{
+		mEconomyCols = cols;
+	}
+	int Plane::getEconomyCols() const
+	{
+		return mEconomyCols;
+	}
 	void Plane::setPlaneId(int PlaneNo)
 	{
 		mPlaneId = PlaneNo;

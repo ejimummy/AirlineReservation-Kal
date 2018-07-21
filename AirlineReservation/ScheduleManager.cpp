@@ -11,6 +11,7 @@
 #include <fstream>
 #include<conio.h>
 #include<iomanip>
+#include "Utils.h"
 
 using std::string;
 using namespace std;
@@ -439,24 +440,41 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
+
+		Plane thePlane1("BOING666", 20, 5);
+		thePlane1.setPlaneId(mAllPlanes.size() + 1);
+		mAllPlanes.push_back(thePlane1);
+
+		Plane thePlane2("BOING808", 3, 1);
+		thePlane2.setPlaneId(mAllPlanes.size() + 1);
+		mAllPlanes.push_back(thePlane2);
+
+		Plane thePlane3("BOING707", 9, 3);
+		thePlane3.setPlaneId(mAllPlanes.size() + 1);
+		mAllPlanes.push_back(thePlane3);
+
+		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl",
+			thePlane1.getPlaneName(), thePlane1.getEconomySeats(), thePlane1.getEconomyCols(),"BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
+		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", 
+			thePlane2.getPlaneName(), thePlane2.getEconomySeats(), thePlane2.getEconomyCols(), "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
+		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", 
+			thePlane1.getPlaneName(), thePlane1.getEconomySeats(), thePlane1.getEconomyCols(), "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
+		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", 
+			thePlane3.getPlaneName(), thePlane3.getEconomySeats(), thePlane3.getEconomyCols(), "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
@@ -510,11 +528,11 @@ void ScheduleManager::AddPlane()
     thePlane1.setPlaneId(mAllPlanes.size() + 1);
 	mAllPlanes.push_back(thePlane1);
 	
-	Plane thePlane2("BOING808", 20, 5);
+	Plane thePlane2("BOING808", 6, 2);
 	thePlane2.setPlaneId(mAllPlanes.size() + 1);
 	mAllPlanes.push_back(thePlane2);
 
-	Plane thePlane3("BOING707", 20, 5);
+	Plane thePlane3("BOING707", 9, 3);
 	thePlane3.setPlaneId(mAllPlanes.size() + 1);
 	mAllPlanes.push_back(thePlane3);
 

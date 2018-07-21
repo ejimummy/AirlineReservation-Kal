@@ -7,8 +7,8 @@
 using namespace std;
 namespace AirlineReservation {
 	Flight::Flight( const std::string date, const std::string departureTime, const std::string arrivalTime, const std::string origin,
-		const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplaneName, const std::string flightNumber)
-		:mairplane(airplaneName,6,2)
+		const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplanename, int airplaneseats, int airplanecols, const std::string flightNumber)
+		:mairplane(airplanename, airplaneseats, airplanecols)
 	{
 		mdate = date;
 		mdepartureTime = departureTime;
@@ -17,8 +17,10 @@ namespace AirlineReservation {
 		mdestination = destination;
 		mdepartureAirport = departureAirport;
 		mairrvalAirport = airrvalAirport;
-		mAirplaneName = airplaneName;
+		mAirplaneName=airplanename;
 		mFlightNumber = flightNumber;
+
+		
 		
 	
 	}
