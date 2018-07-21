@@ -44,7 +44,7 @@ namespace AirlineReservation {
 		void uploadAirportsFromSource();
 
 		//Plane functions
-		Plane& AddPlane(const std::string& planeName, int eSeats, int eCols);
+		void AddPlane();
 		Plane & GetPlaneByName(const std::string& pName);
 		//void DisplayAllSeats(const std::string& pName);
 		

@@ -348,12 +348,20 @@ std::vector<Flight>  ScheduleManager::getAllFlights() {
 
 //Plane Information
 
-Plane&  ScheduleManager::AddPlane(const std::string& planeName, int eSeats, int bSeats)
+void ScheduleManager::AddPlane()
 {
-	Plane thePlane(planeName, eSeats, bSeats);
+	Plane thePlane("BOING666",20,5);
+    thePlane.setPlaneId(mAllPlanes.size() + 1);
 	mAllPlanes.push_back(thePlane);
-	thePlane.setPlaneId(mNextPlaneNumber++);
-	return mAllPlanes[mAllPlanes.size() - 1];
+	
+	Plane thePlane("BOING808", 20, 5);
+	thePlane.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane);
+
+	Plane thePlane("BOING707", 20, 5);
+	thePlane.setPlaneId(mAllPlanes.size() + 1);
+	mAllPlanes.push_back(thePlane);
+
 }
 
 Plane& ScheduleManager::GetPlaneByName(const std::string& pName)
@@ -365,6 +373,7 @@ Plane& ScheduleManager::GetPlaneByName(const std::string& pName)
 	}
 	throw logic_error("No Plane found.");
 }
+
 
 
 
