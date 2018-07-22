@@ -6,6 +6,7 @@
 #include <iterator>
 #include <array>
 #include <cstdlib>
+#include "Utils.h"
 
 using namespace std;
 
@@ -54,7 +55,7 @@ namespace AirlineReservation {
 		
 		for (int i = 0; i < mPlaneSeats.size(); i++) {
 
-			if ((mPlaneSeats[i].seatNo).compare(seat) == 0) {
+			if ((mPlaneSeats[i].seatNo).compare(Utils::toUpper(seat))== 0) {
 
 				//means that seat exist ,whether it is avaliable or not
 				
