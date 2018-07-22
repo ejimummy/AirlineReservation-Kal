@@ -28,6 +28,7 @@ namespace AirlineReservation {
 	Flight f;
 	string seatnumber;
 	//testing
+	string timeValidation();
 	void ScheduleManager::displayTicket(const Ticket& ticket)
 	{
 		cout << endl;
@@ -318,10 +319,10 @@ namespace AirlineReservation {
 		cin >> destination;
 		cout << "Enter Date(MM/DD/YY)" << endl;
 		cin >> tempDate;
-		cout << "Enter Departure Time(HH:MMAM/PM)" << endl;
-		cin >> departureTime;
-		cout << "Enter Arrival Time(HH:MMAM/PM)" << endl;
-		cin >> arrivalTime;
+		cout << "Enter Departure Time(HH:MM)24 hrs format" << endl;
+		departureTime = timeValidation();
+		cout << "Enter Arrival Time(HH:MM) 24 hrs format" << endl;
+		arrivalTime = timeValidation();
 		cout << "Enter Departure airport " << endl;
 		cin >> departureAirport;
 		cout << "Enter Arrival airport " << endl;
@@ -329,8 +330,6 @@ namespace AirlineReservation {
 
 		//cout
 		Flight theFlight;
-		//Flight theFlight(1,tempDate, "9:00PM", "11:00Am", "2A", "2B","la","ca");
-		//theFlight.setAirrvalAirport(airportsEnum :: SEA);
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.setFlightNumber(flightNumber);
 		theFlight.setAirplaneName(airplaneName);
@@ -347,7 +346,51 @@ namespace AirlineReservation {
 		//writeFlightVectorToFile(mAllFlights);
 
 	}
+	string timeValidation() {
+		string time;
+		int hr, mins;
+		while (1) {
+			cout << " Enter Time in hours: " << endl;
+			cin >> hr;
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			if (hr >= 0 && hr < 24)
+				break;
+			cout << "Invalid Time, try again." << endl;
+		}
+		while (1) {
+			cout << "Enter Time in Minutes:" << endl;
+			cin >> mins;
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			if (mins >= 0 && mins < 60)
+				break;
+			cout << "Invalid Time, try again." << endl;
+		}
+		cout << endl;
 
+		string hrString,minsString;
+
+		if (hr < 10)
+			hrString = "0" + to_string(hr);
+		else
+			hrString = to_string(hr);
+
+		if (mins < 10)
+			minsString = "0" + to_string(mins);
+		else
+			minsString = to_string(mins);
+		
+			time = hrString + ":" + minsString;
+
+		return time;
+	}
 	void ScheduleManager::deleteFlight(int flightId)
 	{
 		if (mAllFlights.size() <= 0) {
@@ -401,11 +444,10 @@ namespace AirlineReservation {
 		cout << endl << "___________________________________________________________________________________________________________________" << endl << endl;
 	}
 	
-	void ScheduleManager::writeFlightVectorToFile(vector<Flight> allFlights) {
+	void ScheduleManager::writeFlightVectorToFile(vector<Flight> &allFlights) {
 		fstream myfile;
 		myfile.open("Flight.txt", ios::out);
 		myfile.write((char*)&allFlights, sizeof(allFlights));
-
 		myfile.seekg(0);
 		myfile.close();
 	}
@@ -439,27 +481,37 @@ namespace AirlineReservation {
 	}
 
 	void ScheduleManager::uploadFlightsFromSource()  {
-		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
+		Flight theFlight("08/10/18", "10:10 ", "9:00", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl","BOING707","BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
+		Flight theFlight1("08/10/18", "11:10"," 10:00", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", "BOING707", "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
+		Flight theFlight2("08/10/18", "11:10", "11:00", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING808", "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
+		Flight theFlight3("08/11/18", "11:10 ", "12:00", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", "BOING666", "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
+
+		Flight theFlight4("08/11/18", "12:10 ", "05:00", "LA", "SEA", "Los Angeles Intl", "Tacoma Intl", "BOING777", "A110");
+		theFlight4.setFlightId(mAllFlights.size() + 1);
+		theFlight4.addFlight();
+		mAllFlights.push_back(theFlight4);
+
+		Flight theFlight5("08/15/18", "02:10 ", "05:00", "LA", "SEA", "Los Angeles Intl", "Tacoma Intl", "BOING787", "A110");
+		theFlight5.setFlightId(mAllFlights.size() + 1);
+		theFlight5.addFlight();
+		mAllFlights.push_back(theFlight5);
 	}
 
 	void ScheduleManager::uploadAirportsFromSource() {

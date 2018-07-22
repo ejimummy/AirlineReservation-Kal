@@ -42,7 +42,7 @@ namespace AirlineReservation {
 		 std::vector<Flight> getAllFlights() ;
 
 		//File - Read and Write Functions
-		void writeFlightVectorToFile(std::vector<Flight> allFlights);
+		void writeFlightVectorToFile(std::vector<Flight> &allFlights);
 		void readFlightVectorFromFile() const;
 	
 
