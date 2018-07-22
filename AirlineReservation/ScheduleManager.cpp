@@ -305,7 +305,7 @@ namespace AirlineReservation {
 		//display reservation
 		r.display();
 	}
-
+	
 
 
 	void ScheduleManager::addFlightInformation() {
@@ -320,6 +320,7 @@ namespace AirlineReservation {
 		cin >> destination;
 		cout << "Enter Date(MM/DD/YY)" << endl;
 		cin >> tempDate;
+		
 		cout << "Enter Departure Time(HH:MM)24 hrs format" << endl;
 		departureTime = timeValidation();
 		cout << "Enter Arrival Time(HH:MM) 24 hrs format" << endl;
@@ -495,38 +496,41 @@ namespace AirlineReservation {
 		thePlane3.setPlaneId(mAllPlanes.size() + 1);
 		mAllPlanes.push_back(thePlane3);
 
-		Flight theFlight("08/10/18", "10:10 AM", "9:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl",
+		Flight theFlight("08/10/18", "10:10", "9:00", "SEA", "LAX","Tacoma Intl" ,"Los Angeles Intl",
 			thePlane1.getPlaneName(), thePlane1.getEconomySeats(), thePlane1.getEconomyCols(),"BO12");	
 		theFlight.setFlightId(mAllFlights.size() + 1);
 		theFlight.addFlight();
 		mAllFlights.push_back(theFlight);
 
-		Flight theFlight1("08/10/18", "11:10 AM", "10:00PM", "SEA", "LAX", "Los Angeles Intl", "Tacoma Intl", 
+		Flight theFlight1("08/10/18", "11:10", "10:00", "SEA", "LAX", "Tacoma Intl","Los Angeles Intl", 
 			thePlane2.getPlaneName(), thePlane2.getEconomySeats(), thePlane2.getEconomyCols(), "A110");
 		
 		theFlight1.setFlightId(mAllFlights.size() + 1);
 		theFlight1.addFlight();
 		mAllFlights.push_back(theFlight1);
 
-		Flight theFlight2("08/10/18", "11:10 AM", "11:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", 
+		Flight theFlight2("08/10/18", "11:10", "11:00", "LAX", "SEA","Los Angeles Intl" , "Tacoma Intl",
 			thePlane1.getPlaneName(), thePlane1.getEconomySeats(), thePlane1.getEconomyCols(), "BO12");
 		
 		theFlight2.setFlightId(mAllFlights.size() + 1);
 		theFlight2.addFlight();
 		mAllFlights.push_back(theFlight2);
 
-		Flight theFlight3("08/11/18", "11:10 AM", "12:00PM", "LAX", "SEA", "Tacoma Intl", "Los Angeles Intl", 
+		Flight theFlight3("08/11/18", "11:10", "12:00", "LAX", "SEA","Los Angeles Intl" ,  "Tacoma Intl",
 			thePlane3.getPlaneName(), thePlane3.getEconomySeats(), thePlane3.getEconomyCols(), "A110");
 		theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight3.addFlight();
 		mAllFlights.push_back(theFlight3);
 
-		Flight theFlight4("08/11/18", "12:10 ", "05:00", "LA", "SEA", "Los Angeles Intl", "Tacoma Intl", "BOING777", "A110");
+		Flight theFlight4("08/15/18","13:10", "16:00" , "LAX", "SEA", "Los Angeles Intl", "Tacoma Intl",
+			thePlane3.getPlaneName(), thePlane3.getEconomySeats(), thePlane3.getEconomyCols(), "A110");
+			theFlight3.setFlightId(mAllFlights.size() + 1);
 		theFlight4.setFlightId(mAllFlights.size() + 1);
 		theFlight4.addFlight();
 		mAllFlights.push_back(theFlight4);
 
-		Flight theFlight5("08/15/18", "02:10 ", "05:00", "LA", "SEA", "Los Angeles Intl", "Tacoma Intl", "BOING787", "A110");
+		Flight theFlight5("08/15/18", "16:10", "20:00", "LAX", "SEA", "Los Angeles Intl", "Tacoma Intl",
+			thePlane3.getPlaneName(), thePlane3.getEconomySeats(), thePlane3.getEconomyCols(), "A110");
 		theFlight5.setFlightId(mAllFlights.size() + 1);
 		theFlight5.addFlight();
 		mAllFlights.push_back(theFlight5);
