@@ -15,7 +15,7 @@ namespace AirlineReservation {
 		// constructors
 		Flight() = default;
 		Flight( const std::string date, const std::string  departureTime, const std::string arrivalTime, const std::string   origin,
-			const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplaneName, const std::string flightNumber);
+			const std::string destination, const std::string departureAirport, const std::string airrvalAirport, const std::string airplanename, int airplaneseats, int airplanecols, const std::string flightNumber);
 
 		void displayFlight () const;
 		void addFlight()const;
